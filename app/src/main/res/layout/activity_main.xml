@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="150dp"
         android:scaleType="centerInside"
         android:src="@drawable/regicon" />
 
@@ -21,16 +21,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:hint="Username"
-        android:textSize="50dp" />
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:hint="Password"
-        android:textSize="50dp" />
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/repassword"
@@ -38,17 +38,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:hint="Re-enter Password"
-        android:layout_marginTop="50dp"
-        android:textSize="50dp" />
+        android:layout_marginTop="30dp"
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/repassword"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="register"
-        android:textSize="45dp"
+        android:textSize="30dp"
         android:backgroundTint="@color/teal_700"/>
 
     <Button
@@ -56,9 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Existing user? Login Here"
-        android:textSize="45dp"
+        android:textSize="30dp"
         android:backgroundTint="@color/teal_700"/>
 
 </RelativeLayout>
