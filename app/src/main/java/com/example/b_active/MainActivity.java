@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
     EditText username,password,repassword;
     Button register, existinguser;
     DBHelper myDb;
-    
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +35,28 @@ public class MainActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
-                if(user.equals("") || pass.equals("") || repass.equals(""))
-                {
+                if (user.equals("") || pass.equals("") || repass.equals("")) {
                     Toast.makeText(MainActivity.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-
+                } else {
+                    if (pass.equals(repass)) {
+                        Boolean userCheck = myDB.usernamecheck(user);
+                        if (userCheck == false) {
+                            Boolean regResult = myDB.insertData(user, pass);
+                            if (regResult == true) {
+                                Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(MainActivity.this, "User already exists \n Please sign in", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(MainActivity.this, "Password not matching", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
-        
+
+        }
     }
-}
+
