@@ -2,6 +2,7 @@ package com.example.b_active;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -35,8 +36,37 @@ public class DBHelper extends SQLiteOpenHelper {
         {
             return false;
         }
-        else {
+        else
+        {
             return true;
         }
+    }
+    public Boolean usernamecheck(String username, String password) {
+        SQLiteDatabase myDb = this.getWritableDatabase();
+        Cursor cursor = myDb.rawQuery("select * from users where username = ?", new String[]{username});
+        if (cursor.getCount() > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public Boolean passwordcheck(String username, String password) {
+        SQLiteDatabase myDb = this.getWritableDatabase();
+        Cursor cursor = myDb.rawQuery("select * from users where password = ?", new String[] {username,password});
+        if (cursor.getCount() > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
     }
 }
