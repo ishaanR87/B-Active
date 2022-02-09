@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:hint="Username"
-        android:text="Username"
         android:textSize="50dp" />
 
     <EditText
@@ -31,7 +30,6 @@
         android:layout_below="@id/username"
         android:layout_marginTop="50dp"
         android:hint="Password"
-        android:text="Password"
         android:textSize="50dp" />
 
     <EditText
@@ -40,7 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:hint="Re-enter Password"
-        android:text="Re-enter Password"
         android:layout_marginTop="50dp"
         android:textSize="50dp" />
 
@@ -51,12 +48,17 @@
         android:layout_below="@+id/repassword"
         android:layout_marginTop="50dp"
         android:text="register"
-        android:textSize="50dp"
-        android:backgroundTint="@color/teal_700"
+        android:textSize="45dp"
+        android:backgroundTint="@color/teal_700"/>
 
-"
-
-
-
+    <Button
+        android:id="@+id/existinguser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register"
+        android:layout_marginTop="50dp"
+        android:text="Existing user? Login Here"
+        android:textSize="45dp"
+        android:backgroundTint="@color/teal_700"/>
 
 </RelativeLayout>
