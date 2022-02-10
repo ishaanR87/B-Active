@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         register = (Button) findViewById(R.id.register);
         existinguser = (Button) findViewById(R.id.existinguser);
 
-        DBHelper myDB = new DBHelper(this);
+        myDb = new DBHelper(this);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
                 } else {
                     if (pass.equals(repass)) {
-                        Boolean userCheck = myDB.usernamecheck(user);
+                        Boolean userCheck = myDb.usernamecheck(user);
                         if (userCheck == false) {
-                            Boolean regResult = myDB.insertData(user, pass);
+                            Boolean regResult = myDb.insertData(user, pass);
                             if (regResult == true) {
                                 Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), Login.class);
