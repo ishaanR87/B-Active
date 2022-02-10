@@ -9,61 +9,53 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/registerpage"
+        android:id="@+id/loginpage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:scaleType="centerInside"
-        android:text="Register"
+        android:text="Login"
         android:textSize="40dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:background="@null"
-         />
+        />
+
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/usernamelogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/registerpage"
+        android:layout_below="@id/loginpage"
         android:hint="Username"
         android:textSize="25dp" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+        android:layout_below="@id/usernamelogin"
         android:layout_marginTop="30dp"
         android:hint="Password"
         android:textSize="25dp" />
 
-    <EditText
-        android:id="@+id/repassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:hint="Re-enter Password"
-        android:layout_marginTop="30dp"
-        android:textSize="25dp" />
-
     <Button
-        android:id="@+id/register"
+        android:id="@+id/loginbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/repassword"
         android:layout_marginTop="30dp"
-        android:text="Register"
+        android:layout_below="@+id/passwordlogin"
+        android:text="Login"
         android:textSize="30dp"
         android:backgroundTint="@color/teal_700"
         android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/existinguser"
+        android:id="@+id/registeruserbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register"
+        android:layout_below="@+id/loginbtn"
         android:layout_marginTop="30dp"
-        android:text="Existing user? Login Here"
+        android:text="New here? Register"
         android:textSize="30dp"
         android:backgroundTint="@color/teal_700"
         android:textAllCaps="false"/>

@@ -2,6 +2,7 @@ package com.example.b_active;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         repassword = (EditText) findViewById(R.id.repassword);
-        
+
         register = (Button) findViewById(R.id.register);
         existinguser = (Button) findViewById(R.id.existinguser);
 
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                             Boolean regResult = myDB.insertData(user, pass);
                             if (regResult == true) {
                                 Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                             }
@@ -57,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        }
+        existinguser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
     }
+}
 
