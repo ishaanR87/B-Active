@@ -8,10 +8,42 @@
     tools:context=".Home">
 
     <EditText
+        android:id="@+id/home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
         android:gravity="center"
         android:text="Welcome to B-Active" />
+
+    <Button
+        android:id="@+id/stepcntr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Step-Counter"
+        android:layout_below="@+id/home"/>
+
+    <Button
+        android:id="@+id/calorietrack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calorie-tracker"
+        android:layout_below="@+id/stepcntr"/>
+
+    <Button
+        android:id="@+id/workoutplanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Workout-planner"
+        android:layout_below="@+id/calorietrack"/>
+
+    <Button
+        android:id="@+id/runtracker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run-Tracker"
+        android:layout_below="@+id/workoutplanner"/>
+
+
 
 
 </RelativeLayout>
