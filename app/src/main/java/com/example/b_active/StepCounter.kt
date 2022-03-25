@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_step_counter.*
 class StepCounter : AppCompatActivity(), StepsCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_step_counter)
+        setContentView(R.layout.activity_stepcounter)
 
         val intent = Intent(this, StepDetectorService::class.java)
         startService(intent)
