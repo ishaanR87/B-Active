@@ -105,7 +105,7 @@
                 android:text="Calories Burnt"
                 android:textSize="15dp"
                 android:layout_marginLeft="45dp"
-                android:drawableRight="@drawable/calories"
+                android:drawableRight="@drawable/stepcal"
                 android:drawablePadding="5dp"/>
 
         </LinearLayout>

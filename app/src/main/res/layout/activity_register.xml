@@ -69,18 +69,22 @@
         android:layout_below="@+id/repassword"
         android:layout_marginTop="30dp"
         android:text="Register"
-        android:textSize="23dp"
+        android:textSize="25dp"
         android:backgroundTint="@color/darkblue"
+        app:cornerRadius="10dp"
         android:layout_centerHorizontal="true" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/existinguser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_below="@+id/register"
         android:layout_marginTop="20dp"
-        android:text="Existing user? Login Here"
-        android:textSize="23dp"
+        android:text="Login Here"
+        android:textSize="25dp"
+        app:cornerRadius="10dp"
         android:backgroundTint="@color/darkblue"
         />
 

@@ -102,7 +102,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/blue"
-                    android:text="Start Counting"/>
+                    android:text="Start Counting"
+                    app:cornerRadius="10dp"/>
 
 
             </LinearLayout>
@@ -178,7 +179,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/blue"
-                    android:text="Begin Workout"/>
+                    android:text="Begin Workout"
+                    app:cornerRadius="10dp"/>
 
 
             </LinearLayout>
@@ -254,7 +256,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/blue"
-                    android:text="Start Tracking"/>
+                    android:text="Start Tracking"
+                    app:cornerRadius="10dp"/>
 
 
             </LinearLayout>
