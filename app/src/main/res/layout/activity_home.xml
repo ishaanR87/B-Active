@@ -36,14 +36,5 @@
         android:text="Workout-planner"
         android:layout_below="@+id/calorietrack"/>
 
-    <Button
-        android:id="@+id/runtracker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Run-Tracker"
-        android:layout_below="@+id/workoutplanner"/>
-
-
-
 
 </RelativeLayout>

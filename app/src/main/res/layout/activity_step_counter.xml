@@ -65,7 +65,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MySteps" />
+                android:text="MySteps"
+                android:textSize="15dp"/>
 
 
         </LinearLayout>
@@ -102,7 +103,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Calories Burnt"
-                android:layout_marginLeft="45dp"/>
+                android:textSize="15dp"
+                android:layout_marginLeft="45dp"
+                android:drawableRight="@drawable/calories"
+                android:drawablePadding="5dp"/>
 
         </LinearLayout>
 
@@ -138,7 +142,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Distance Covered"
-                android:layout_marginLeft="45dp"/>
+                android:layout_marginLeft="45dp"
+                android:textSize="15dp"
+                android:drawableRight="@drawable/distance"/>
 
         </LinearLayout>
 

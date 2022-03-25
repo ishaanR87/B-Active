@@ -29,8 +29,8 @@
         android:background="#30ffffff"
         android:textColorHint="@color/white"
         android:drawableLeft="@drawable/login"
-        android:drawablePadding="20dp"
-        android:textSize="25dp" />
+        android:drawablePadding="25dp"
+        android:textSize="30dp" />
 
     <EditText
         android:id="@+id/password"
@@ -42,9 +42,9 @@
         android:layout_marginTop="30dp"
         android:textColorHint="@color/white"
         android:drawableLeft="@drawable/password"
-        android:drawablePadding="20dp"
+        android:drawablePadding="25dp"
         android:hint="Password"
-        android:textSize="25dp" />
+        android:textSize="30dp" />
 
     <EditText
         android:id="@+id/repassword"
@@ -52,12 +52,14 @@
         android:inputType="textPassword"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
+        android:background="#30ffffff"
         android:hint="Re-enter Password"
+        android:textSize="30dp"
         android:textColorHint="@color/white"
         android:drawableLeft="@drawable/password"
         android:drawablePadding="20dp"
         android:layout_marginTop="30dp"
-        android:textSize="25sp" />
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/register"
@@ -76,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text="Existing user? Login Here"
         android:textSize="25dp"
         android:backgroundTint="@color/teal_700"
