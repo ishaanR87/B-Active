@@ -26,6 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/registerpage"
         android:hint="Username"
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:drawableLeft="@drawable/login"
+        android:drawablePadding="20dp"
         android:textSize="25dp" />
 
     <EditText
@@ -33,8 +37,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
+        android:background="#30ffffff"
         android:layout_below="@id/username"
         android:layout_marginTop="30dp"
+        android:textColorHint="@color/white"
+        android:drawableLeft="@drawable/password"
+        android:drawablePadding="20dp"
         android:hint="Password"
         android:textSize="25dp" />
 
@@ -45,29 +53,33 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:hint="Re-enter Password"
+        android:textColorHint="@color/white"
+        android:drawableLeft="@drawable/password"
+        android:drawablePadding="20dp"
         android:layout_marginTop="30dp"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/register"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_below="@+id/repassword"
         android:layout_marginTop="30dp"
         android:text="Register"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:backgroundTint="@color/teal_700"
-        android:textAllCaps="false"/>
+        android:layout_centerHorizontal="true" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/existinguser"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:text="Existing user? Login Here"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:backgroundTint="@color/teal_700"
-        android:textAllCaps="false"/>
+        />
 
 </RelativeLayout>

@@ -27,7 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/loginpage"
         android:hint="Username"
-        android:textSize="25dp" />
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:textSize="25dp"
+        android:drawableLeft="@drawable/login"
+        android:drawablePadding="20dp"
+        />
 
     <EditText
         android:id="@+id/passwordlogin"
@@ -37,28 +42,32 @@
         android:layout_below="@id/usernamelogin"
         android:layout_marginTop="30dp"
         android:hint="Password"
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:drawableLeft="@drawable/password"
+        android:drawablePadding="20dp"
         android:textSize="25dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/loginbtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/passwordlogin"
         android:text="Login"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:backgroundTint="@color/teal_700"
-        android:textAllCaps="false"/>
+        android:layout_centerHorizontal="true"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/registeruserbtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginbtn"
-        android:layout_marginTop="30dp"
-        android:text="New here? Register"
-        android:textSize="30dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/teal_700"
-        android:textAllCaps="false"/>
+        android:text="New here? Register"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
