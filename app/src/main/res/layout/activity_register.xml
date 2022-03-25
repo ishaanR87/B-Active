@@ -69,8 +69,8 @@
         android:layout_below="@+id/repassword"
         android:layout_marginTop="30dp"
         android:text="Register"
-        android:textSize="25dp"
-        android:backgroundTint="@color/teal_700"
+        android:textSize="23dp"
+        android:backgroundTint="@color/darkblue"
         android:layout_centerHorizontal="true" />
 
     <com.google.android.material.button.MaterialButton
@@ -80,8 +80,8 @@
         android:layout_below="@+id/register"
         android:layout_marginTop="20dp"
         android:text="Existing user? Login Here"
-        android:textSize="25dp"
-        android:backgroundTint="@color/teal_700"
+        android:textSize="23dp"
+        android:backgroundTint="@color/darkblue"
         />
 
 </RelativeLayout>

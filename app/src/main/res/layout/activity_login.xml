@@ -55,8 +55,8 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/passwordlogin"
         android:text="Login"
-        android:textSize="25dp"
-        android:backgroundTint="@color/teal_700"
+        android:textSize="23"
+        android:backgroundTint="@color/darkblue"
         android:layout_centerHorizontal="true"/>
 
     <com.google.android.material.button.MaterialButton
@@ -65,9 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginbtn"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/darkblue"
         android:text="New here? Register"
-        android:textSize="25dp"
+        android:textSize="23dp"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
