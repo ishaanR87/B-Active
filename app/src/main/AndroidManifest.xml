@@ -14,10 +14,10 @@
         android:name=".App">
 
         <activity
-            android:name=".StepCounter"
+            android:name=".Home"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".StepCounter"
             android:exported="true" />
         <activity
             android:name=".Login"

@@ -1,29 +1,22 @@
-package com.example.b_active;
+package com.example.b_active
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+import android.os.Bundle
+import com.example.b_active.R
+import android.view.View
+import android.content.Intent
+import com.example.b_active.StepCounter
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-public class Home extends AppCompatActivity {
-
-    Button stepCounter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        stepCounter = (Button) findViewById(R.id.stepcntr);
-
-        stepCounter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StepCounter.class);
-                startActivity(intent);
-            }
-        });
+class Home : AppCompatActivity() {
+    var stepCounter: Button? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+        stepCounter = findViewById<View>(R.id.stepcntr) as Button
+        stepCounter!!.setOnClickListener {
+            val intent = Intent(applicationContext, StepCounter::class.java)
+            startActivity(intent)
+        }
     }
 }
