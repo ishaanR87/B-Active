@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/register"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".Register">
 
     <EditText
         android:id="@+id/registerpage"
@@ -32,6 +32,7 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:layout_below="@id/username"
         android:layout_marginTop="30dp"
         android:hint="Password"
@@ -40,6 +41,7 @@
     <EditText
         android:id="@+id/repassword"
         android:layout_width="match_parent"
+        android:inputType="textPassword"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:hint="Re-enter Password"
