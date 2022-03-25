@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_step_counter.*
 
-class MainActivity : AppCompatActivity(), StepsCallback {
+class StepCounter : AppCompatActivity(), StepsCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_step_counter)
