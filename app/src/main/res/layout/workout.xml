@@ -579,6 +579,7 @@
 
                         >
 
+
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -618,7 +619,6 @@
 
 
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="fill_parent"
@@ -797,7 +797,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Burpees"
+                                android:text="Burpee"
                                 android:textAllCaps="true"
                                 android:textColor="#ff000000"
                                 android:textSize="15dp"
@@ -972,9 +972,7 @@
                     <TableRow
                         android:layout_width="fill_parent"
                         android:layout_height="1.00dp"
-                        android:background="@color/blue">
-
-                    </TableRow>
+                        android:background="@color/blue"></TableRow>
 
                 </LinearLayout>
 
