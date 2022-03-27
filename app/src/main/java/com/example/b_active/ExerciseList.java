@@ -51,7 +51,7 @@ public class ExerciseList extends AppCompatActivity {
             case 10:
                 setContentView(R.layout.exercise10);
                 break;
-                
+
         }
     }
 }
