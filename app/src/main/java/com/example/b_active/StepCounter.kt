@@ -3,12 +3,12 @@ package com.example.b_active
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_stepcounter.*
+import kotlinx.android.synthetic.main.stepcounter.*
 
 class StepCounter : AppCompatActivity(), StepsCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stepcounter)
+        setContentView(R.layout.stepcounter)
 
         val intent = Intent(this, StepDetectorService::class.java)
         startService(intent)
