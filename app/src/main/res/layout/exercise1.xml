@@ -27,6 +27,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/time"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="120dp"
