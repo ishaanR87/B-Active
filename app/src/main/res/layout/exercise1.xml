@@ -78,7 +78,7 @@
                     android:layout_height="400dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:text="1- Start in a press-up position with your hands shoulder-width apart directly beneath your shoulders.\n\n2- As quickly as you can, pull your right knee towards your chest without letting it touch the floor then return to the start position.\n\n3- Repeat step 2 with your left leg.\n\n4- Continue until you have completed the required amount of reps." />
+                    android:text="@string/ex1"/>
 
                 <TextView
                     android:layout_width="wrap_content"

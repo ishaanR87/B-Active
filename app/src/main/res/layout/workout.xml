@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:background="#8cd3ff"
         android:gravity="center"
-        android:text="Most popular exercises"
+        android:text="Exercise Page"
         android:textSize="27dp"
         android:textColor="@color/white"/>
 
