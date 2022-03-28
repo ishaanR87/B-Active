@@ -25,7 +25,7 @@
 
                 />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="120dp"
@@ -33,18 +33,20 @@
                 android:padding="15dp"
                 android:text="01:00"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="30dp"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/starttimerex1"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/starttimer"
                 android:text="Start Timer"
-
-
+                android:textColor="@color/white"
+                android:textSize="18dp" />
 
 
         </LinearLayout>
