@@ -12,7 +12,7 @@ public class ExerciseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ExerciseList);
+        setContentView(R.layout.exerciselist);
 
         Intent intent = getIntent();
         buttonValue = intent.getStringExtra("value");

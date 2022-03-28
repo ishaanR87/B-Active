@@ -29,9 +29,22 @@
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="120dp"
-                android:text="01:00"
-                android:textSize="30dp"
+                android:background="@drawable/timer"
                 android:padding="15dp"
+                android:text="01:00"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="30dp"/>
+
+            <Button
+                android:id="@+id/starttimerex1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Start Timer"
+
+
 
 
         </LinearLayout>
