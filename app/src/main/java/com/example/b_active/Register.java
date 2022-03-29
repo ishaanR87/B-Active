@@ -81,15 +81,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         return;
                 }
 
-                if(password.isEmpty()){
-                        etpassword.setError("Password is required!");
-                        etpassword.requestFocus();
-                        return;
-                }
-
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                         etemail.setError("Please provide valid email!");
                         etemail.requestFocus();
+                        return;
+                }
+
+
+                if(password.isEmpty()){
+                        etpassword.setError("Password is required!");
+                        etpassword.requestFocus();
                         return;
                 }
 
