@@ -2,15 +2,14 @@ package com.example.b_active;
 
 public class User {
 
-    public String fullname, age, email;
+    public String fullname, email;
 
     public User(){
 
     }
 
-    public User(String fullname, String age, String email){
+    public User(String fullname, String email){
         this.fullname = fullname;
-        this.age = age;
         this.email = email;
     }
 }

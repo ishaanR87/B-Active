@@ -1,5 +1,6 @@
 package com.example.b_active;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
@@ -55,7 +60,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 switch (v.getId())
                 {
                         case R.id.registerpage:
-                                startActivity(new Intent(this, Login.class));
+                                startActivity(new Intent(this, Register.class));
                                 break;
                         case R.id.regbtn:
                                 registerUser();
@@ -99,5 +104,37 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         etpassword.requestFocus();
                         return;
                 }
+
+                progressbar.setVisibility(View.VISIBLE);
+                mAuth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if(task.isSuccessful())
+                                        {
+                                                User user = new User(fullname,email);
+
+                                                FirebaseDatabase.getInstance().getReference("Users")
+                                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                if(task.isSuccessful())
+                                                                {
+                                                                        Toast.makeText(Register.this,"User has been registered successfully", Toast.LENGTH_LONG).show();
+                                                                        progressbar.setVisibility(View.GONE);
+
+                                                                } else {
+                                                                        Toast.makeText(Register.this,"Hi!", Toast.LENGTH_LONG).show();
+                                                                        progressbar.setVisibility(View.GONE);
+                                                                }
+                                                        }
+                                                });
+                                        }else {
+                                                Toast.makeText(Register.this,"BYYYYY!", Toast.LENGTH_LONG).show();
+                                                progressbar.setVisibility(View.GONE);
+                                        }
+                                }
+                        });
         }
 }
