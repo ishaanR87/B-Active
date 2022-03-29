@@ -1,22 +1,21 @@
 package com.example.b_active;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ExerciseList extends AppCompatActivity {
 
     String buttonValue;
     Button startButton;
     private CountDownTimer countDownTimer;
-    TextView time;
+    TextView timeTextView;
     private boolean timeRunning;
-    private long timeLeft;
+    private long timeLeftInMilliseconds;
 
 
 
@@ -66,22 +65,17 @@ public class ExerciseList extends AppCompatActivity {
         }
 
         startButton = findViewById(R.id.starttimerex1);
-        time = findViewById(R.id.time);
+        timeTextView = findViewById(R.id.time);
 
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(timeRunning)
+        startButton.setOnClickListener(v -> {
+            if(timeRunning)
+            {
+                stopTimer();
 
-                {
-
-
-                }
-
-                else
-                {
-
-                }
+            }
+            else
+            {
+                startTimer();
             }
         });
     }
@@ -90,30 +84,67 @@ public class ExerciseList extends AppCompatActivity {
     {
         countDownTimer.cancel();
         timeRunning=false;
-        startButton.setText("Start");
+        startButton.setText("Start Timer");
     }
 
     private void startTimer()
     {
-        final CharSequence value = time.getText();
+        final CharSequence value = timeTextView.getText();
         String num1 = value.toString();
         String num2 = num1.substring(0,2);
         String num3 = num1.substring(3,5);
 
-        final int number = Integer.valueOf(num2) * 60 + Integer.valueOf(num3);
-        timeLeft = number * 1000;
+        final int number = Integer.valueOf(num2) * 60+ Integer.valueOf(num3);
+        timeLeftInMilliseconds = number*1000;
 
-        countDownTimer = new CountDownTimer(timeLeft,1000) {
+        countDownTimer = new CountDownTimer(timeLeftInMilliseconds,1000) {
             @Override
             public void onTick(long millisecondsUntilFinish) {
+
+                timeLeftInMilliseconds = millisecondsUntilFinish;
+                updateTimer();
 
             }
 
             @Override
             public void onFinish() {
-
+                int newvalue = Integer.valueOf(buttonValue)+1;
+                if(newvalue<=7)
+                {
+                    Intent intent = new Intent(ExerciseList.this,ExerciseList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("value",String.valueOf(newvalue));
+                    startActivity(intent);
+                }
+                else
+                {
+                    newvalue = 1;
+                    Intent intent = new Intent(ExerciseList.this,ExerciseList.class);
+                    intent.putExtra("value",String.valueOf(newvalue));
+                    startActivity(intent);
+                }
             }
-        }
+        }.start();
+            startButton.setText("Pause Timer");
+            timeRunning = true;
+    }
 
+    private void updateTimer()
+    {
+        int minutes = (int) timeLeftInMilliseconds/60000;
+        int seconds = (int) timeLeftInMilliseconds%60000 /1000;
+
+        String timeLeftText="";
+        if(minutes<10)
+            timeLeftText="0";
+        timeLeftText = timeLeftText+minutes+":";
+        if(seconds<10)
+            timeLeftText+=seconds;
+        timeTextView.setText(timeLeftText);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

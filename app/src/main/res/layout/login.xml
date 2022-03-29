@@ -1,75 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:padding="8dp"
+    android:padding="10dp"
     tools:context=".Login">
 
-    <EditText
-        android:id="@+id/loginpage"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:text="Login"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@null"
-        />
-
-
-    <EditText
-        android:id="@+id/usernamelogin"
+    <TextView
+        android:id="@+id/registerpage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginpage"
-        android:hint="Username"
-        android:background="#30ffffff"
-        android:textColorHint="@color/white"
+        android:text="B-Active"
+        android:textSize="50dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/blue"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/logindesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textStyle="italic"
         android:textSize="30dp"
-        android:drawableLeft="@drawable/login"
-        android:drawablePadding="20dp"
-        />
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/registerpage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+    <EditText
+        android:id="@+id/Emaillogin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="text"
+        android:textSize="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logindesc"/>
 
     <EditText
         android:id="@+id/passwordlogin"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/usernamelogin"
-        android:layout_marginTop="30dp"
-        android:hint="Password"
-        android:background="#30ffffff"
-        android:textColorHint="@color/white"
-        android:drawableLeft="@drawable/password"
-        android:drawablePadding="20dp"
-        android:textSize="30dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordlogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/darkblue"
-        android:text="Login"
-        android:textSize="25dp"
-        app:cornerRadius="10dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/registeruserbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginbtn"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/darkblue"
-        android:text="sign up here"
-        android:textSize="25dp"
-        app:cornerRadius="10dp" />
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="text"
+        android:textSize="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Emaillogin"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="380dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:text="Login"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordlogin"/>
+
+    <TextView
+        android:id="@+id/forgotpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/loginbtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="46dp"/>
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/loginbtn"
+        app:layout_constraintLeft_toRightOf="@id/forgotpass"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="46dp"/>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
