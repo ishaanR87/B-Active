@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView register;
+    private TextView register, forgotPassword;
     private EditText lemail, lpassword;
     private Button signIN;
 
@@ -48,6 +48,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         progressBar.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
+
+        forgotPassword = (TextView) findViewById(R.id.forgotpass);
+        forgotPassword.setOnClickListener(this);
     }
 
     public void onClick(View v)
@@ -59,6 +62,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             case R.id.loginbtn:
                 userLogin();
+                break;
+
+            case R.id.forgotpass:
+                startActivity(new Intent(this, ForgotPassword.class));
                 break;
 
         }
@@ -109,6 +116,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 }else{
                     user.sendEmailVerification();
                     Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                 }
                 }
                 else {
