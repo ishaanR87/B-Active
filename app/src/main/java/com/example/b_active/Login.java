@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,7 +54,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     {
         switch (v.getId()) {
             case R.id.register:
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, Register.class));
                 break;
 
             case R.id.loginbtn:
@@ -100,8 +101,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if(user.isEmailVerified()){
                     startActivity(new Intent(Login.this, Home.class));
                     progressBar.setVisibility(View.GONE);
+                }else{
+                    user.sendEmailVerification();
+                    Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                }
                 }
                 else {
                     Toast.makeText(Login.this, "Login failed! Please try again!", Toast.LENGTH_LONG).show();
