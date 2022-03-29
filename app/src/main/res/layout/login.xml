@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="B-Active"
         android:textSize="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:textColor="@color/blue"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
