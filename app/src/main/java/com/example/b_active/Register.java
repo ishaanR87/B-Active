@@ -54,7 +54,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
                 switch (v.getId())
                 {
-                        case R.id.regdesc:
+                        case R.id.registerpage:
                                 startActivity(new Intent(this, Login.class));
                                 break;
                         case R.id.regbtn:
@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 }
 
                 if(password.isEmpty()){
-                        etpassword.setError("Full name is required!");
+                        etpassword.setError("Password is required!");
                         etpassword.requestFocus();
                         return;
                 }
@@ -94,7 +94,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 }
 
                 if(password.length() < 6) {
-                        etpassword.setError("Password length should be more that 6 characters!");
+                        etpassword.setError("Password length should be more than 6 characters!");
                         etpassword.requestFocus();
                         return;
                 }
