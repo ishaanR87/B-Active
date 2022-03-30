@@ -111,7 +111,7 @@ public class ExerciseChooser extends AppCompatActivity {
                 int newvalue = Integer.valueOf(buttonValue)+1;
                 if(newvalue<=7)
                 {
-                    Intent intent = new Intent(ExerciseChooser.this, ExerciseChooser.class);
+                    Intent intent = new Intent(ExerciseChooser.this, Workout.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("value",String.valueOf(newvalue));
                     startActivity(intent);
@@ -119,7 +119,7 @@ public class ExerciseChooser extends AppCompatActivity {
                 else
                 {
                     newvalue = 1;
-                    Intent intent = new Intent(ExerciseChooser.this, ExerciseChooser.class);
+                    Intent intent = new Intent(ExerciseChooser.this, Workout.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("value",String.valueOf(newvalue));
                     startActivity(intent);
