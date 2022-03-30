@@ -26,13 +26,13 @@
             android:name=".ExerciseChooser"
             android:exported="true" />
         <activity
-            android:name=".StepCounter"
+            android:name=".Workout"
             android:exported="true" />
         <activity
             android:name=".Home"
             android:exported="true" />
         <activity
-            android:name=".Workout"
+            android:name=".StepCounter"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
