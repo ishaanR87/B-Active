@@ -29,7 +29,7 @@ public class Workout extends AppCompatActivity {
             if(view.getId() == newArray[i]) {
                 int value = i + 1;
                 Log.i("First",String.valueOf(value));
-                Intent intent = new Intent(Workout.this, ExerciseList.class);
+                Intent intent = new Intent(Workout.this, ExerciseChooser.class);
                 intent.putExtra("value",String.valueOf(value));
                 startActivity(intent);
             }

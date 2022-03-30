@@ -3,33 +3,34 @@ package com.example.b_active;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ExerciseList extends AppCompatActivity {
+public class ExerciseChooser extends AppCompatActivity {
 
     String buttonValue;
-    Button startButton;
+    Button startBtn;
     private CountDownTimer countDownTimer;
-    TextView timeTextView;
-    private boolean timeRunning;
-    private long timeLeftInMilliseconds;
+    TextView mTextView;
+    private boolean MtimeRunning;
+    private long MtimeLeftInMillis;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.exerciselist);
+        setContentView(R.layout.exercisechooser);
 
         Intent intent = getIntent();
         buttonValue = intent.getStringExtra("value");
 
         int intValue = Integer.valueOf(buttonValue);
 
-        switch(intValue){
+        switch (intValue) {
 
             case 1:
                 setContentView(R.layout.exercise1);
@@ -64,18 +65,17 @@ public class ExerciseList extends AppCompatActivity {
 
         }
 
-        startButton = findViewById(R.id.starttimerex1);
-        timeTextView = findViewById(R.id.time);
+        startBtn = findViewById(R.id.start);
+        mTextView = findViewById(R.id.timer);
 
-        startButton.setOnClickListener(v -> {
-            if(timeRunning)
-            {
-                stopTimer();
-
-            }
-            else
-            {
-                startTimer();
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (MtimeRunning) {
+                    stopTimer();
+                } else {
+                    startTimer();
+                }
             }
         });
     }
@@ -83,25 +83,25 @@ public class ExerciseList extends AppCompatActivity {
     private void stopTimer()
     {
         countDownTimer.cancel();
-        timeRunning=false;
-        startButton.setText("Start Timer");
+        MtimeRunning=false;
+        startBtn.setText("Start Timer");
     }
 
     private void startTimer()
     {
-        final CharSequence value = timeTextView.getText();
-        String num1 = value.toString();
+        final CharSequence value1 = mTextView.getText();
+        String num1 = value1.toString();
         String num2 = num1.substring(0,2);
         String num3 = num1.substring(3,5);
 
         final int number = Integer.valueOf(num2) * 60+ Integer.valueOf(num3);
-        timeLeftInMilliseconds = number*1000;
+        MtimeLeftInMillis = number* 1000L;
 
-        countDownTimer = new CountDownTimer(timeLeftInMilliseconds,1000) {
+        countDownTimer = new CountDownTimer(MtimeLeftInMillis,1000) {
             @Override
-            public void onTick(long millisecondsUntilFinish) {
+            public void onTick(long millisUntilFinish) {
 
-                timeLeftInMilliseconds = millisecondsUntilFinish;
+               MtimeLeftInMillis = millisUntilFinish;
                 updateTimer();
 
             }
@@ -111,7 +111,7 @@ public class ExerciseList extends AppCompatActivity {
                 int newvalue = Integer.valueOf(buttonValue)+1;
                 if(newvalue<=7)
                 {
-                    Intent intent = new Intent(ExerciseList.this,ExerciseList.class);
+                    Intent intent = new Intent(ExerciseChooser.this, ExerciseChooser.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("value",String.valueOf(newvalue));
                     startActivity(intent);
@@ -119,28 +119,30 @@ public class ExerciseList extends AppCompatActivity {
                 else
                 {
                     newvalue = 1;
-                    Intent intent = new Intent(ExerciseList.this,ExerciseList.class);
+                    Intent intent = new Intent(ExerciseChooser.this, ExerciseChooser.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("value",String.valueOf(newvalue));
                     startActivity(intent);
                 }
             }
         }.start();
-            startButton.setText("Pause Timer");
-            timeRunning = true;
+            startBtn.setText("Pause Timer");
+            MtimeRunning = true;
     }
 
     private void updateTimer()
     {
-        int minutes = (int) timeLeftInMilliseconds/60000;
-        int seconds = (int) timeLeftInMilliseconds%60000 /1000;
+        int minutes = (int) MtimeLeftInMillis/60000;
+        int seconds = (int) MtimeLeftInMillis%60000 /1000;
 
         String timeLeftText="";
         if(minutes<10)
             timeLeftText="0";
         timeLeftText = timeLeftText+minutes+":";
         if(seconds<10)
+            timeLeftText="0";
             timeLeftText+=seconds;
-        timeTextView.setText(timeLeftText);
+        mTextView.setText(timeLeftText);
     }
 
     @Override

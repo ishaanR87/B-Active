@@ -17,13 +17,13 @@
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".ExerciseList"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".Workout"
+            android:name=".ExerciseChooser"
             android:exported="true" />
         <activity
             android:name=".StepCounter"
@@ -32,7 +32,7 @@
             android:name=".Home"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".Workout"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
