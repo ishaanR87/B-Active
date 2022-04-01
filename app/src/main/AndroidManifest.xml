@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BActive">
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
+            android:name=".Bmi"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
@@ -32,7 +38,7 @@
             android:name=".StepCounter"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

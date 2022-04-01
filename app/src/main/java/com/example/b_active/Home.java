@@ -14,6 +14,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     Button stepcounter;
     Button workout;
     Button logout;
+    Button bmi;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +23,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         stepcounter = findViewById(R.id.stepcntr);
         workout = findViewById(R.id.workoutbtn);
         logout = (Button) findViewById(R.id.home);
+        bmi = (Button) findViewById(R.id.bmibtn);
 
         stepcounter.setOnClickListener(this);
         workout.setOnClickListener(this);
+        bmi.setOnClickListener(this);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +53,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             case R.id.workoutbtn:
                 Intent workingout = new Intent(Home.this, Workout.class);
                 startActivity((workingout));
+                break;
+
+            case R.id.bmibtn:
+                Intent calculating = new Intent(Home.this, Bmi.class);
+                startActivity((calculating));
                 break;
         }
     }
