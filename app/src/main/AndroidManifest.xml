@@ -17,7 +17,7 @@
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".Register"
@@ -29,10 +29,10 @@
             android:name=".Workout"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".StepCounter"
             android:exported="true" />
         <activity
-            android:name=".StepCounter"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

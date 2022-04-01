@@ -115,8 +115,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     progressBar.setVisibility(View.GONE);
                 }else{
                     user.sendEmailVerification();
-                    Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
                 }
                 }
                 else {

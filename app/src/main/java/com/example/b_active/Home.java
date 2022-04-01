@@ -8,9 +8,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Home extends AppCompatActivity implements View.OnClickListener {
     Button stepcounter;
     Button workout;
+    Button logout;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,9 +21,18 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
         stepcounter = findViewById(R.id.stepcntr);
         workout = findViewById(R.id.workoutbtn);
+        logout = (Button) findViewById(R.id.home);
 
         stepcounter.setOnClickListener(this);
         workout.setOnClickListener(this);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Home.this,Login.class));
+            }
+        });
     }
 
 

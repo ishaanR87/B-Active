@@ -35,7 +35,7 @@ class GeneralHelper {
                     .setStyle(NotificationCompat.BigTextStyle().bigText(step.toString()))
                     .setSmallIcon(R.drawable.ic_launcher_foreground)
                     .setContentIntent(pendingIntent)
-                    .setProgress(500, step, false)
+                    .setProgress(10000, step, false)
                     //.setProgress(this.dailyStepGoal, totalSteps, false)
                     .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                     .setPriority(NotificationCompat.PRIORITY_MIN)
