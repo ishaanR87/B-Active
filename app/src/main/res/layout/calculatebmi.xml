@@ -36,7 +36,6 @@
             android:textSize="50sp"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"
-            android:background="@color/trans"
             android:textColor="@color/white"
             android:id="@+id/bmidisplay"
             android:text="22">

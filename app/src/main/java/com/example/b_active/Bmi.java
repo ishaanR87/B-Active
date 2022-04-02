@@ -163,7 +163,7 @@ public class Bmi extends AppCompatActivity {
                 }
                 else {
 
-                    Intent intent = new Intent(Bmi.this, Workout.class);
+                    Intent intent = new Intent(Bmi.this, CalculateBMI.class);
                     intent.putExtra("gender", typerofuser);
                     intent.putExtra("height", mintprogress);
                     intent.putExtra("weight", weight2);

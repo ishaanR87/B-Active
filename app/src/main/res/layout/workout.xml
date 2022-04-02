@@ -11,9 +11,10 @@
         android:id="@+id/workout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#8cd3ff"
+        android:background="@drawable/background"
         android:gravity="center"
-        android:text="B-Active's Workout"
+        android:text="Workout"
+        android:textStyle="bold"
         android:textSize="27dp"
         android:textColor="@color/white"/>
 
