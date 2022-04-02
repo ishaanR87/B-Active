@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BActive">
         <activity
+            android:name=".CalculateBMI"
+            android:exported="false" />
+        <activity
             android:name=".Splash"
             android:exported="false" />
         <activity
