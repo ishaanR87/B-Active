@@ -17,7 +17,7 @@
             android:name=".CalculateBMI"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".Bmi"
@@ -41,7 +41,7 @@
             android:name=".StepCounter"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
