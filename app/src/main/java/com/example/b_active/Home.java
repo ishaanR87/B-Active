@@ -20,6 +20,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        setTitle("Home");
+
         stepcounter = findViewById(R.id.stepcntr);
         workout = findViewById(R.id.workoutbtn);
         logout = (Button) findViewById(R.id.home);

@@ -13,19 +13,19 @@
         android:layout_centerInParent="true"
         android:src="@drawable/bactive"></ImageView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="B-Active"
-            android:layout_marginTop="30dp"
-            android:textStyle="bold"
-            android:textSize="45dp"
-            android:layout_below="@id/logo"
-            android:textColor="@color/blue"
-            android:lineSpacingExtra="2dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="2dp"
+        android:text="B-Active"
+        android:textColor="@color/blue"
+        android:textSize="45dp"
+        android:textStyle="bold">
 
-        </TextView>
+    </TextView>
 
 
 

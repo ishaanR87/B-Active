@@ -16,7 +16,7 @@ public class Workout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout);
 
-        EditText woedittext = findViewById(R.id.workout);
+       setTitle("Workout");
 
         newArray = new int[]{
                 R.id.exercise1, R.id.exercise2, R.id.exercise3, R.id.exercise4, R.id.exercise5,

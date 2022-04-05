@@ -41,8 +41,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         lemail = (EditText) findViewById(R.id.Emaillogin);
         lpassword = (EditText) findViewById(R.id.passwordlogin);
-
-        getSupportActionBar().hide();
+        
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);

@@ -7,16 +7,6 @@
     tools:context=".Workout"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/workout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/background"
-        android:gravity="center"
-        android:text="Workout"
-        android:textStyle="bold"
-        android:textSize="27dp"
-        android:textColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="fill_parent"

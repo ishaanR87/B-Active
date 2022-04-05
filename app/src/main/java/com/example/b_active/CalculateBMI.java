@@ -42,6 +42,8 @@ public class CalculateBMI extends AppCompatActivity {
         setContentView(R.layout.calculatebmi);
         getSupportActionBar();
 
+        setTitle("BMI Calculator");
+
 
         intent=getIntent();
         mbmidisplay=findViewById(R.id.bmidisplay);
@@ -98,12 +100,12 @@ public class CalculateBMI extends AppCompatActivity {
         }
         else if(intbmi<34.9 && intbmi>30)
         {
-            mbmicategory.setText("Overweight (Obese Class I");
+            mbmicategory.setText("Overweight (Obese Class I)");
             mimageview.setImageResource(R.drawable.warning);
         }
         else
         {
-            mbmicategory.setText("Overweight (Obese Class II");
+            mbmicategory.setText("Overweight (Obese Class II)");
             mimageview.setImageResource(R.drawable.bad);
         }
 

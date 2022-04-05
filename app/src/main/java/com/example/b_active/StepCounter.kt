@@ -9,6 +9,7 @@ class StepCounter : AppCompatActivity(), StepsCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.stepcounter)
+        setTitle("Step Counter")
 
         val intent = Intent(this, StepDetectorService::class.java)
         startService(intent)

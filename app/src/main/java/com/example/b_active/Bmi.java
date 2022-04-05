@@ -40,6 +40,8 @@ public class Bmi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bmi);
 
+        setTitle("Body Mass Index");
+
         getSupportActionBar().show();
         mcurrentage=findViewById(R.id.currentage);
         mcurrentweight=findViewById(R.id.currentweight);
