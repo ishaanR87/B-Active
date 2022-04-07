@@ -13,7 +13,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "bactive";
-    private static final int databaseVersion = 57;
+    private static final int databaseVersion = 60;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -77,9 +77,9 @@ public class DBAdapter {
                         " user_alias VARCHAR," +
                         " user_dob DATE, " +
                         " user_gender INT, " +
-                        " user_location VARHCAR, " +
+                        " user_location VARCHAR, " +
                         " user_height INT, " +
-                        " user_mesurment VARHCAR, " +
+                        " user_measurement VARCHAR, " +
                         " user_last_seen TIME," +
                         " user_note VARCHAR);");
 

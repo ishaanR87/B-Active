@@ -72,7 +72,7 @@ public class CalorieSignUp extends AppCompatActivity {
         TextView textViewErrorMessage = (TextView)findViewById(R.id.textViewErrorMessage);
         textViewErrorMessage.setVisibility(View.GONE);
 
-        /* Hide icnhes field */
+        /* Hide inches field */
         EditText editTextHeightInches = (EditText)findViewById(R.id.editTextHeightInches);
         editTextHeightInches.setVisibility(View.GONE);
 
@@ -223,7 +223,7 @@ public class CalorieSignUp extends AppCompatActivity {
         EditText editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         String stringEmail = editTextEmail.getText().toString();
         if(stringEmail.isEmpty() || stringEmail.startsWith(" ")){
-            errorMessage = "Please fill inn an e-mail address.";
+            errorMessage = "Please fill in an e-mail address.";
         }
 
         // Date of Birth Day

@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+         if(numberRows == 1)
+        {
+            Intent i = new Intent(MainActivity.this, Login.class);
+            startActivity(i);
+        }
+
         /* Close database */
         db.close();
 
