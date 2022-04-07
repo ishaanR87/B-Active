@@ -35,14 +35,15 @@
                 <ImageView
                     android:id="@+id/imageViewError"
                     android:src="@drawable/dialog_error"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="30dp"
                     />
                 <TextView
                     android:id="@+id/textViewErrorMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Error!"
+                    android:textStyle="bold"
                     android:layout_marginTop="8dp"
                     android:layout_marginLeft="8dp"
                     /><!-- @string/blank -->
@@ -199,7 +200,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spinnerMeasurement"
+                    android:id="@+id/spinnerMesurment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
