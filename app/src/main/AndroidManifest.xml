@@ -17,6 +17,9 @@
             android:name=".CalculateBMI"
             android:exported="false" />
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".Splash"
             android:exported="false" />
         <activity
@@ -41,7 +44,10 @@
             android:name=".StepCounter"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".CalorieSignUp"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

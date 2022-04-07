@@ -1,8 +1,12 @@
 package com.example.b_active;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,5 +48,27 @@ public class CalorieSignUp extends AppCompatActivity {
 
             index++;
         }
+
+        Spinner spinnerDOBYear = (Spinner) findViewById(R.id.spinnerDOBYear);
+        ArrayAdapter<String> adapterYear = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, arraySpinnerDOBYear);
+        spinnerDOBYear.setAdapter(adapterYear);
+
+        /* Hide error icon and message */
+        ImageView imageViewError = (ImageView)findViewById(R.id.imageViewError);
+        imageViewError.setVisibility(View.GONE);
+
+        TextView textViewErrorMessage = (TextView)findViewById(R.id.textViewErrorMessage);
+        textViewErrorMessage.setVisibility(View.GONE);
+
+        /* Listener buttonSignUp */
+        Button buttonSignUp = (Button)findViewById(R.id.setgoal);
+        buttonSignUp.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //signUpSubmit();
+            }
+        });
+
     }
 }
