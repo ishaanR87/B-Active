@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
             // Sign up
             // Toast.makeText(this, "You are only few fields away from signing up...", Toast.LENGTH_LONG).show();
 
-            Intent i = new Intent(MainActivity.this, CalorieSignUp.class);
+            Intent i = new Intent(MainActivity.this, UserProfile.class);
             startActivity(i);
         }
 
          if(numberRows == 1)
         {
-            Intent i = new Intent(MainActivity.this, Login.class);
+            Intent i = new Intent(MainActivity.this, CalorieTarget.class);
             startActivity(i);
         }
 

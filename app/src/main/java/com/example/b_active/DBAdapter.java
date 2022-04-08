@@ -13,7 +13,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "bactive";
-    private static final int databaseVersion = 62;
+    private static final int databaseVersion = 90;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -71,7 +71,7 @@ public class DBAdapter {
                 db.execSQL("CREATE TABLE IF NOT EXISTS users (" +
                         " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         " user_id INTEGER, " +
-                        " user_email VARCHAR," +
+                        " user_username VARCHAR," +
                         " user_password VARCHAR, " +
                         " user_salt VARCHAR, " +
                         " user_alias VARCHAR," +

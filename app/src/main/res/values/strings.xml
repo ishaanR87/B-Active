@@ -52,4 +52,16 @@
         <item>Intensive exercise (6–7 days per week)</item>
     </string-array>
 
+    <string-array name="array_weekly_goals">
+        <item>loose weight</item>
+        <item>gain weight</item>
+    </string-array>
+
+    <string-array name="array_weekly_goals_kg">
+        <item>0.5</item>
+        <item>1</item>
+        <item>1.5</item>
+    </string-array>
+
+
 </resources>

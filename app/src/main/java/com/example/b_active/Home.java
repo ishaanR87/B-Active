@@ -66,7 +66,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.caloriebtn:
-                Intent calpage = new Intent(Home.this, CalorieSignUp.class);
+                Intent calpage = new Intent(Home.this, MainActivity.class);
                 startActivity((calpage));
                 break;
         }

@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if(user.isEmailVerified()){
-                    startActivity(new Intent(Login.this, Home.class));
+                    startActivity(new Intent(Login.this, UserProfile.class));
                     progressBar.setVisibility(View.GONE);
                 }else{
                     user.sendEmailVerification();

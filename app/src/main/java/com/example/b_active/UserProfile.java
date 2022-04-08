@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class CalorieSignUp extends AppCompatActivity {
+public class UserProfile extends AppCompatActivity {
 
 
     /* Variables */
@@ -30,7 +30,7 @@ public class CalorieSignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.caloriesignup);
+        setContentView(R.layout.userprofile);
 
 
         /* Fill numbers for date of birth days */
@@ -75,7 +75,7 @@ public class CalorieSignUp extends AppCompatActivity {
         editTextHeightInches.setVisibility(View.GONE);
 
 
-        /* Listener Mesurment spinner */
+        /* Listener Measurement spinner */
         Spinner spinnerMeasurement = (Spinner)findViewById(R.id.spinnerMeasurement);
         spinnerMeasurement.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -87,7 +87,6 @@ public class CalorieSignUp extends AppCompatActivity {
 
             }
         });
-
 
         /* Listener buttonSignUp */
         Button buttonSignUp = (Button)findViewById(R.id.setgoal);
@@ -193,7 +192,7 @@ public class CalorieSignUp extends AppCompatActivity {
         if(doubleWeight != 0) {
 
             if (stringMeasurement.startsWith("I")) {
-                // kg to punds
+                // kg to pounds
                 doubleWeight = Math.round(doubleWeight / 0.45359237);
             } else {
                 // pounds to kg
@@ -202,7 +201,7 @@ public class CalorieSignUp extends AppCompatActivity {
             editTextWeight.setText("" + doubleWeight);
         }
 
-    } // public voidd measuredChanged
+    } // public void measuredChanged
 
     /*- Sign up Submit ---------------------------------------------- */
     public void signUpSubmit() {
@@ -212,11 +211,11 @@ public class CalorieSignUp extends AppCompatActivity {
         String errorMessage = "";
 
         // Email
-        TextView textViewEmail = (TextView)findViewById(R.id.textViewEmail);
-        EditText editTextEmail = (EditText)findViewById(R.id.editTextEmail);
-        String stringEmail = editTextEmail.getText().toString();
-        if(stringEmail.isEmpty() || stringEmail.startsWith(" ")){
-            errorMessage = "Please fill in an e-mail address.";
+        TextView textViewUser = (TextView)findViewById(R.id.UserName);
+        EditText editTextUser = (EditText)findViewById(R.id.editTextUsername);
+        String stringUsername = editTextUser.getText().toString();
+        if(stringUsername.isEmpty() || stringUsername.startsWith(" ")){
+            errorMessage = "Please make up a username.";
         }
 
         // Date of Birth Day
@@ -247,8 +246,6 @@ public class CalorieSignUp extends AppCompatActivity {
         else{
             stringDOBMonth = "" + month;
         }
-        // Toast.makeText(this, "Month: " + stringDOBMonth, Toast.LENGTH_LONG).show();
-
 
         // Date of Birth Year
         Spinner spinnerDOBYear = (Spinner)findViewById(R.id.spinnerDOBYear);
@@ -262,7 +259,7 @@ public class CalorieSignUp extends AppCompatActivity {
             errorMessage = "Please select a year for your birthday.";
         }
 
-        // Put date of birth togheter
+        // Put date of birth together
         String dateOfBirth = intDOBYear + "-" + stringDOBMonth + "-" + stringDOBDay;
 
 
@@ -357,7 +354,6 @@ public class CalorieSignUp extends AppCompatActivity {
             doubleWeight = Math.round(doubleWeight*0.45359237);
         }
 
-
         // Activity level
         Spinner spinnerActivityLevel = (Spinner)findViewById(R.id.spinnerActivityLevel);
         //  0: Little to no exercise
@@ -373,25 +369,23 @@ public class CalorieSignUp extends AppCompatActivity {
             imageViewError.setVisibility(View.GONE);
             textViewErrorMessage.setVisibility(View.GONE);
 
-
             // Insert into database
             DBAdapter db = new DBAdapter(this);
             db.open();
 
-
             // Quote smart
-            String stringEmailSQL = db.quoteSmart(stringEmail);
+            String stringUserSQL = db.quoteSmart(stringUsername);
             String dateOfBirthSQL = db.quoteSmart(dateOfBirth);
             String stringGenderSQL = db.quoteSmart(stringGender);
             double heightCmSQL = db.quoteSmart(heightCm);
             int intActivityLevelSQL = db.quoteSmart(intActivityLevel);
             double doubleWeightSQL = db.quoteSmart(doubleWeight);
-            String stringMesurmentSQL = db.quoteSmart(stringMeasurement);
+            String stringMeasurementSQL = db.quoteSmart(stringMeasurement);
 
             // Input for users
-            String stringInput = "NULL, " + stringEmailSQL + "," + dateOfBirthSQL + "," + stringGenderSQL + "," + heightCmSQL + "," + stringMesurmentSQL;
+            String stringInput = "NULL, " + stringUserSQL + "," + dateOfBirthSQL + "," + stringGenderSQL + "," + heightCmSQL + "," + stringMeasurementSQL;
             db.insert("users",
-                    "_id, user_email, user_dob, user_gender, user_height, user_mesurment",
+                    "_id, user_username, user_dob, user_gender, user_height, user_measurement",
                     stringInput);
 
             // Input for goal
@@ -405,12 +399,10 @@ public class CalorieSignUp extends AppCompatActivity {
                     "_id, goal_current_weight, goal_date, goal_activity_level",
                     stringInput);
 
-
-
             db.close();
 
             // Move user back to MainActivity
-            Intent i = new Intent(CalorieSignUp.this, Login.class);
+            Intent i = new Intent(UserProfile.this, Home.class);
             startActivity(i);
         }
         else {

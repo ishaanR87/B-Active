@@ -64,19 +64,19 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewEmail"
+                    android:id="@+id/UserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Email:"
+                    android:text="Username:"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/editTextUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     />
             </TableRow>
             <!-- //Email -->
