@@ -44,23 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        /* Check if there is user in the user table */
-        // Count rows in user table
-        numberRows = db.count("users");
-
-        if(numberRows < 1){
-            // Sign up
-            // Toast.makeText(this, "You are only few fields away from signing up...", Toast.LENGTH_LONG).show();
-
-            Intent i = new Intent(MainActivity.this, UserProfile.class);
-            startActivity(i);
-        }
-
-         if(numberRows == 1)
-        {
             Intent i = new Intent(MainActivity.this, CalorieTarget.class);
             startActivity(i);
-        }
 
         /* Close database */
         db.close();

@@ -67,6 +67,8 @@ public class DBAdapter {
                 e.printStackTrace();
             }
             try{
+
+                db.execSQL("DROP TABLE IF EXISTS users");
                 // Create tables
                 db.execSQL("CREATE TABLE IF NOT EXISTS users (" +
                         " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
