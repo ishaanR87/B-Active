@@ -1,6 +1,7 @@
 package com.example.b_active;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,8 +45,26 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-            Intent i = new Intent(MainActivity.this, CalorieTarget.class);
+        /* Check if there is user in the user table */
+        // Count rows in user table
+        numberRows = db.count("users");
+
+        /* Close database */
+        db.close();
+
+
+        if(numberRows < 1){
+            // Sign up
+            // Toast.makeText(this, "You are only few fields away from signing up...", Toast.LENGTH_LONG).show();
+
+            Intent i = new Intent(MainActivity.this, UserProfile.class);
             startActivity(i);
+        }
+        else{
+            Intent i = new Intent(MainActivity.this, Home.class);
+            startActivity(i);
+
+        }
 
         /* Close database */
         db.close();

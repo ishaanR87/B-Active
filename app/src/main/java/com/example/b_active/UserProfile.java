@@ -402,7 +402,7 @@ public class UserProfile extends AppCompatActivity {
             db.close();
 
             // Move user back to MainActivity
-            Intent i = new Intent(UserProfile.this, Home.class);
+            Intent i = new Intent(UserProfile.this, CalorieTarget.class);
             startActivity(i);
         }
         else {
