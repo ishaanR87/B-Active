@@ -130,7 +130,7 @@ public class DBAdapter {
                         " fd_energy_calculated DOUBLE," +
                         " fd_protein_calculated DOUBLE," +
                         " fd_carbohydrates_calculated DOUBLE," +
-                        " fd_fat_calculated DOUBLE" +
+                        " fd_fat_calculated DOUBLE," +
                         " fd_meal_id INT);");
             }
             catch (SQLException e) {
