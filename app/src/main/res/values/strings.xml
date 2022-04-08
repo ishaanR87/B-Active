@@ -53,8 +53,8 @@
     </string-array>
 
     <string-array name="array_weekly_goals">
-        <item>loose weight</item>
-        <item>gain weight</item>
+        <item>Lose weight</item>
+        <item>Gain weight</item>
     </string-array>
 
     <string-array name="array_weekly_goals_kg">

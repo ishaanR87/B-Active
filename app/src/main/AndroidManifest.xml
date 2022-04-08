@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BActive">
         <activity
-            android:name=".CalorieTarget"
+            android:name=".UserProfile"
             android:exported="false" />
         <activity
             android:name=".CalculateBMI"
@@ -47,10 +47,10 @@
             android:name=".StepCounter"
             android:exported="true" />
         <activity
-            android:name=".UserProfile"
+            android:name=".Login"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".CalorieTarget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

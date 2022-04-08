@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/imageViewLogo"
             android:layout_width="wrap_content"
-            android:layout_height="90dp"
+            android:layout_height="125dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
             android:src="@drawable/bactive" />
@@ -26,6 +26,8 @@
 
         <!-- Error handling -->
         <TableLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TableRow
@@ -54,25 +56,28 @@
         <!-- Target weight -->
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/textViewTargetWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Target Weight:"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textSize="15dp"/>
 
                 <EditText
                     android:id="@+id/editTextTargetWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:layout_marginLeft="73dp"/>
 
                 <TextView
                     android:id="@+id/textViewTargetMesurmentType"
@@ -96,33 +101,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Goal:"
+                    android:textSize="15dp"
                     android:textStyle="bold"/>
 
                 <Spinner
+
                     android:id="@+id/spinnerIWantTo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/array_weekly_goals"/>
+                    android:entries="@array/array_weekly_goals"
+                    android:layout_marginLeft="20dp"/>
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" >
+                android:layout_marginTop="10dp"
+                >
 
                 <TextView
                     android:id="@+id/textViewWeeklyGoalB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Weeky surplus/deficit:"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textSize="15dp"/>
 
                 <Spinner
                     android:id="@+id/spinnerWeeklyGoal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/array_weekly_goals_kg"
+                    android:layout_marginLeft="20dp"
                     />
 
                 <TextView
@@ -134,21 +145,17 @@
             </TableRow>
             <!-- //TWeekly goal -->
 
-            <!-- Submit button -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp" >
+
 
                 <Button
                     android:id="@+id/buttonSubmit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start tracking"/>
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="Start tracking"
+                    android:layout_marginTop="40dp"/>
 
 
-            </TableRow>
-            <!-- //Submit button -->
+
         </TableLayout>
         <!-- //Table layout -->
 

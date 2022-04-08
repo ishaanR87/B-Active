@@ -13,7 +13,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "bactive";
-    private static final int databaseVersion = 91;
+    private static final int databaseVersion = 92;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
