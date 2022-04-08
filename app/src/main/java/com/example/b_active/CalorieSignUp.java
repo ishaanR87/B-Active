@@ -63,8 +63,6 @@ public class CalorieSignUp extends AppCompatActivity {
         spinnerDOBYear.setAdapter(adapterYear);
 
 
-
-
         /* Hide error icon and message */
         ImageView imageViewError = (ImageView)findViewById(R.id.imageViewError);
         imageViewError.setVisibility(View.GONE);
@@ -78,20 +76,17 @@ public class CalorieSignUp extends AppCompatActivity {
 
 
         /* Listener Mesurment spinner */
-        Spinner spinnerMesurment = (Spinner)findViewById(R.id.spinnerMesurment);
-        spinnerMesurment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Spinner spinnerMeasurement = (Spinner)findViewById(R.id.spinnerMeasurement);
+        spinnerMeasurement.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                mesurmentChanged();
+                measurementChanged();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // mesurmentChanged();
+
             }
         });
-
-
-
 
 
         /* Listener buttonSignUp */
@@ -106,12 +101,12 @@ public class CalorieSignUp extends AppCompatActivity {
 
     } // protected void onCreate
 
-    /*- Mesurment changed ------------------------------------------ */
-    public void mesurmentChanged() {
+    /*- Measurement changed ------------------------------------------ */
+    public void measurementChanged() {
 
-        // Mesurment spinner
-        Spinner spinnerMesurment = (Spinner)findViewById(R.id.spinnerMesurment);
-        String stringMesurment = spinnerMesurment.getSelectedItem().toString();
+        // Measurement spinner
+        Spinner spinnerMeasurement = (Spinner)findViewById(R.id.spinnerMeasurement);
+        String stringMeasurement = spinnerMeasurement.getSelectedItem().toString();
 
 
         EditText editTextHeightCm = (EditText)findViewById(R.id.editTextHeightCm);
@@ -126,7 +121,7 @@ public class CalorieSignUp extends AppCompatActivity {
         TextView textViewCm = (TextView)findViewById(R.id.textViewCm);
         TextView textViewKg = (TextView)findViewById(R.id.textViewKg);
 
-        if(stringMesurment.startsWith("I")){
+        if(stringMeasurement.startsWith("I")){
             // Imperial
             editTextHeightInches.setVisibility(View.VISIBLE);
             textViewCm.setText("feet and inches");
@@ -150,7 +145,7 @@ public class CalorieSignUp extends AppCompatActivity {
 
             }
 
-        } // if(stringMesurment.startsWith("I")){
+        } // if(stringMeasurement.startsWith("I")){
         else{
             // Metric
             editTextHeightInches.setVisibility(View.GONE);
@@ -184,8 +179,6 @@ public class CalorieSignUp extends AppCompatActivity {
             }
         }
 
-
-
         // Weight
         EditText editTextWeight = (EditText)findViewById(R.id.editTextWeight);
         String stringWeight = editTextWeight.getText().toString();
@@ -199,7 +192,7 @@ public class CalorieSignUp extends AppCompatActivity {
 
         if(doubleWeight != 0) {
 
-            if (stringMesurment.startsWith("I")) {
+            if (stringMeasurement.startsWith("I")) {
                 // kg to punds
                 doubleWeight = Math.round(doubleWeight / 0.45359237);
             } else {
@@ -209,7 +202,7 @@ public class CalorieSignUp extends AppCompatActivity {
             editTextWeight.setText("" + doubleWeight);
         }
 
-    } // public voild messuredChanged
+    } // public voidd measuredChanged
 
     /*- Sign up Submit ---------------------------------------------- */
     public void signUpSubmit() {
@@ -299,15 +292,15 @@ public class CalorieSignUp extends AppCompatActivity {
         boolean metric = true;
 
         // Metric or imperial?
-        Spinner spinnerMesurment = (Spinner)findViewById(R.id.spinnerMesurment);
-        String stringMesurment = spinnerMesurment.getSelectedItem().toString();
+        Spinner spinnerMeasurement = (Spinner)findViewById(R.id.spinnerMeasurement);
+        String stringMeasurement = spinnerMeasurement.getSelectedItem().toString();
 
-        int intMesurment = spinnerMesurment.getSelectedItemPosition();
-        if(intMesurment == 0){
-            stringMesurment = "metric";
+        int intMeasurement = spinnerMeasurement.getSelectedItemPosition();
+        if(intMeasurement == 0){
+            stringMeasurement = "metric";
         }
         else{
-            stringMesurment = "imperial";
+            stringMeasurement = "imperial";
             metric = false;
         }
 
@@ -393,7 +386,7 @@ public class CalorieSignUp extends AppCompatActivity {
             double heightCmSQL = db.quoteSmart(heightCm);
             int intActivityLevelSQL = db.quoteSmart(intActivityLevel);
             double doubleWeightSQL = db.quoteSmart(doubleWeight);
-            String stringMesurmentSQL = db.quoteSmart(stringMesurment);
+            String stringMesurmentSQL = db.quoteSmart(stringMeasurement);
 
             // Input for users
             String stringInput = "NULL, " + stringEmailSQL + "," + dateOfBirthSQL + "," + stringGenderSQL + "," + heightCmSQL + "," + stringMesurmentSQL;
