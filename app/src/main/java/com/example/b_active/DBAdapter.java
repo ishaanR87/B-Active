@@ -1,5 +1,6 @@
 package com.example.b_active;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -13,7 +14,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "bactive";
-    private static final int databaseVersion = 92;
+    private static final int databaseVersion = 94;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -275,8 +276,157 @@ public class DBAdapter {
         catch(SQLiteException e){
             return -1;
         }
-
     }
+
+    public Cursor select(String table, String[] fields) throws SQLException
+    {
+        Cursor mCursor = db.query(table, fields, null, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    // Select All where (String)
+    public Cursor select(String table, String[] fields, String whereClause, String whereCondition) throws SQLException
+    {
+        Cursor mCursor = db.query(table, fields, whereClause + "=" + whereCondition, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    // Select All where (String)
+    public Cursor select(String table, String[] fields, String[] whereClause, String[] whereCondition, String[] whereAndOr) throws SQLException
+    {
+        /*
+        Cursor cursorFdce;
+        String fieldsFdce[] = new String[] {
+                "_id",
+                "fdce_id",
+                "fdce_date",
+                "fdce_meal_no",
+                "fdce_eaten_energy",
+                "fdce_eaten_proteins",
+                "fdce_eaten_carbs",
+                "fdce_eaten_fat"
+        };
+        String whereClause[] = new String[]{
+                "fdce_date",
+                "fdce_meal_no"
+        };
+        String whereCondition[] = new String[]{
+                stringDateSQL,
+                stringMealNumberSQL
+        };
+        String whereAndOr[] = new String[]{
+                "AND"
+        };*/
+        String where = "";
+        int arraySize = whereClause.length;
+        for(int x=0;x<arraySize;x++) {
+            if(where.equals("")) {
+                where = whereClause[x] + "=" + whereCondition[x];
+            }
+            else{
+                where = where + " " + whereAndOr[x-1] + " " + whereClause[x] + "=" + whereCondition[x];
+            }
+        }
+        //Toast.makeText(context, where, Toast.LENGTH_SHORT).show();
+
+        Cursor mCursor = db.query(table, fields, where, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    // Select All where (Long)
+    public Cursor select(String table, String[] fields, String whereClause, long whereCondition) throws SQLException {
+        Cursor mCursor = db.query(table, fields, whereClause + "=" + whereCondition, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+    // Select with order
+    public Cursor select(String table, String[] fields, String whereClause, String whereCondition, String orderBy, String OrderMethod) throws SQLException
+    {
+        Cursor mCursor = null;
+        if(whereClause.equals("")) {
+            // We dont want to se where
+            mCursor = db.query(table, fields, null, null, null, null, orderBy + " " + OrderMethod, null);
+        }
+        else {
+            mCursor = db.query(table, fields, whereClause + "=" + whereCondition, null, null, null, orderBy + " " + OrderMethod, null);
+        }
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    /* 11 Update ----------------------------------------------------------------- */
+        /* Update example:
+        long id = 1;
+        String value = "xxt@doesthiswork.com";
+        String valueSQL = db.quoteSmart(value);
+        db.update("users", "user_id", id, "user_email", valueSQL);
+         */
+        /*String updateFields[] = new String[] {
+                    "fd_serving_size_gram",
+                    "fd_serving_size_pcs",
+                    "fd_energy_calculated",
+                    "fd_protein_calculated",
+                    "fd_carbohydrates_calculated",
+                    "fd_fat_calculated"
+            };
+            String updateValues[] = new String[] {
+                    fdServingSizeGramSQL,
+                    stringFdServingSizePcsSQL,
+                    stringFdEnergyCalcualtedSQL,
+                    stringFdProteinsCalcualtedSQL,
+                    stringFdCarbohydratesCalcualtedSQL,
+                    stringFdFatCalcualtedSQL
+            };
+            long longPrimaryKey = Long.parseLong(currentFdId);
+            db.update("food_diary", "_id", longPrimaryKey, updateFields, updateValues);
+            */
+    public boolean update(String table, String primaryKey, long rowId, String field, String value) throws SQLException {
+        // Toast.makeText(context, "UPDATE " + table + " SET " + field + "=" + value + " WHERE " + primaryKey + "=" + rowId, Toast.LENGTH_SHORT).show();
+
+        // Remove first and last value of value
+        value = value.substring(1, value.length()-1); // removes apostrophe after running quote smart
+
+        ContentValues args = new ContentValues();
+        args.put(field, value);
+        return db.update(table, args, primaryKey + "=" + rowId, null) > 0;
+    }
+    public boolean update(String table, String primaryKey, long rowId, String field, double value) throws SQLException {
+        ContentValues args = new ContentValues();
+        args.put(field, value);
+        return db.update(table, args, primaryKey + "=" + rowId, null) > 0;
+    }
+    public boolean update(String table, String primaryKey, long rowId, String field, int value) throws SQLException {
+        ContentValues args = new ContentValues();
+        args.put(field, value);
+        return db.update(table, args, primaryKey + "=" + rowId, null) > 0;
+    }
+    public boolean update(String table, String primaryKey, long rowID, String fields[], String values[]) throws SQLException {
+        ContentValues args = new ContentValues();
+        int arraySize = fields.length;
+        for(int x=0;x<arraySize;x++){
+            // Remove first and last value of value
+            values[x] = values[x].substring(1, values[x].length()-1); // removes apostrophe after running quote smart
+            // Put
+            args.put(fields[x], values[x]);
+        }
+
+        return db.update(table, args, primaryKey + "=" + rowID, null) > 0;
+    }
+
+
 
 }
 

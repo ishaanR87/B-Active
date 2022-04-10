@@ -32,7 +32,7 @@
         android:layout_above="@id/heightlayout"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="35dp"
         android:layout_toStartOf="@id/centerverticalline"
         android:background="@drawable/cardbackgroung">
 
@@ -70,7 +70,7 @@
         android:layout_above="@id/heightlayout"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="35dp"
         android:layout_toEndOf="@id/centerverticalline"
         android:background="@drawable/cardbackgroung">
 
@@ -174,7 +174,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:background="@color/blue"
         android:text="Calculate"
         android:textColor="@color/white"
