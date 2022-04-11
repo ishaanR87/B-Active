@@ -404,7 +404,6 @@ public class CalorieTarget extends AppCompatActivity {
             TextView textViewTargetMesurmentType = (TextView)findViewById(R.id.textViewTargetMesurmentType);
             textViewTargetMesurmentType.setText("pounds");
 
-
             // Kg each week to pounds each week
             TextView textViewKgEachWeek = (TextView)findViewById(R.id.textViewKgEachWeek);
             textViewKgEachWeek.setText("pounds each week");

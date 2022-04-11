@@ -20,7 +20,7 @@
             android:name=".CalculateBMI"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Splash"
@@ -50,7 +50,7 @@
             android:name=".CalorieTarget"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
