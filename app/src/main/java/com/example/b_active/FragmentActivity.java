@@ -1,34 +1,26 @@
 package com.example.b_active;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
+
 
 public class FragmentActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-   /* CategoriesFragment.OnFragmentInteractionListener,
+        implements NavigationView.OnNavigationItemSelectedListener,
+    CategoriesFragment.OnFragmentInteractionListener,
     FoodFragment.OnFragmentInteractionListener,
-    HomeFragment.OnFragmentInteractionListener,
-    ProfileFragment.OnFragmentInteractionListener */
+    CaloriesFragment.OnFragmentInteractionListener,
+    ProfileFragment.OnFragmentInteractionListener {
 
 
     @Override
@@ -42,7 +34,7 @@ public class FragmentActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /* Inialize fragmet */
+        /* Initialize fragment */
         Fragment fragment = null;
         Class fragmentClass = null;
         fragmentClass = Home.class;
@@ -112,7 +104,7 @@ public class FragmentActivity extends AppCompatActivity
         Class fragmentClass = null;
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(FragmentActivity.this, Home.class);
+            fragmentClass = CaloriesFragment.class;
         } else if (id == R.id.nav_profile) {
             fragmentClass = ProfileFragment.class;
         } else if (id == R.id.nav_categories) {
