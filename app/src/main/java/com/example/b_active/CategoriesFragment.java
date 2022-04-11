@@ -247,7 +247,7 @@ public class CategoriesFragment extends Fragment {
         populateList(currentCategoryId, currentCategoryName);
 
         // Show food in category
-       // showFoodInCategory(currentCategoryId, currentCategoryName, parentID);
+        //showFoodInCategory(currentCategoryId, currentCategoryName, parentID);
 
     } // listItemClicked
 

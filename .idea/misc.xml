@@ -12,6 +12,7 @@
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/circle.xml" value="0.17" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/distance.xml" value="0.17" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/headcell.xml" value="0.124" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/ic_add_circle_grey.xml" value="0.1" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/ic_menu_action_add.xml" value="0.1" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/ic_menu_action_delete.xml" value="0.1" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/drawable/ic_menu_action_edit.xml" value="0.1" />
@@ -59,11 +60,16 @@
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_categories.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_categories_add_edit.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_categories_delete.xml" value="0.1" />
-        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_food.xml" value="0.1" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_food.xml" value="0.18" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_food_delete.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_food_edit.xml" value="0.22" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_food_list_item.xml" value="0.22" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_food_view.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_gallery.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_profile.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_slideshow.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/fragment_update.xml" value="0.1" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/home.xml" value="0.1" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/login.xml" value="0.2" />
         <entry key="..\:/Users/irawa/Desktop/College/Year 4/Final Year Project/B-Active/app/src/main/res/layout/main.xml" value="0.11005434782608696" />
