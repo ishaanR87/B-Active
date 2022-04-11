@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/blue</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.BActive.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.BActive.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.BActive.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
