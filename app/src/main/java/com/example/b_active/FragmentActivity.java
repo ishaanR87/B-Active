@@ -16,7 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 
 public class FragmentActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        CategoriesFragment.OnFragmentInteractionListener {
 
 
     @Override
@@ -129,4 +130,8 @@ public class FragmentActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }

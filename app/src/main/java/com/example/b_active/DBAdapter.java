@@ -14,7 +14,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "bactive";
-    private static final int databaseVersion = 94;
+    private static final int databaseVersion = 95;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -427,6 +427,11 @@ public class DBAdapter {
     }
 
 
+    /* 12 Delete ----------------------------------------------------------------- */
+    // Delete a particular record
+    public int delete(String table, String primaryKey, long rowID) throws SQLException {
+        return db.delete(table, primaryKey + "=" + rowID, null);
+    }
 
 }
 
