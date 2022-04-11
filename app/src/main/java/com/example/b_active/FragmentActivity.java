@@ -17,7 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class FragmentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        CategoriesFragment.OnFragmentInteractionListener {
+        CategoriesFragment.OnFragmentInteractionListener,
+        FoodFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +102,6 @@ public class FragmentActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             fragmentClass = CaloriesFragment.class;
-        } else if (id == R.id.nav_profile) {
-            fragmentClass = ProfileFragment.class;
         } else if (id == R.id.nav_categories) {
             fragmentClass = CategoriesFragment.class;
         } else if (id == R.id.nav_food) {

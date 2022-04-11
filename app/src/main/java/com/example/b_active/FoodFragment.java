@@ -176,7 +176,7 @@ public class FoodFragment extends Fragment {
         String fields[] = new String[]{
                 "_id",
                 "food_name",
-                "food_manufactor_name",
+                "food_manufacturer_name",
                 "food_description",
                 "food_serving_size_gram",
                 "food_serving_size_gram_mesurment",
@@ -232,7 +232,7 @@ public class FoodFragment extends Fragment {
         String fields[] = new String[]{
                 "_id",
                 "food_name",
-                "food_manufactor_name",
+                "food_manufacturer_name",
                 "food_description",
                 "food_serving_size_gram",
                 "food_serving_size_gram_mesurment",
@@ -298,7 +298,7 @@ public class FoodFragment extends Fragment {
         String fields[] = new String[]{
                 "_id",
                 "food_name",
-                "food_manufactor_name",
+                "food_manufacturer_name",
                 "food_description",
                 "food_serving_size_gram",
                 "food_serving_size_gram_mesurment",
@@ -893,7 +893,7 @@ public class FoodFragment extends Fragment {
 
             String fields[] = new String[]{
                     "food_name",
-                    "food_manufactor_name",
+                    "food_manufacturer_name",
                     "food_description",
                     "food_serving_size_gram",
                     "food_serving_size_gram_mesurment",
@@ -1281,7 +1281,7 @@ public class FoodFragment extends Fragment {
             String fields =
                     "_id, " +
                             "food_name, " +
-                            "food_manufactor_name, " +
+                            "food_manufacturer_name, " +
                             "food_description, " +
                             "food_serving_size_gram, " +
                             "food_serving_size_gram_mesurment, " +
