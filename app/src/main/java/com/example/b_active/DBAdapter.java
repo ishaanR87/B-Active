@@ -300,29 +300,6 @@ public class DBAdapter {
     // Select All where (String)
     public Cursor select(String table, String[] fields, String[] whereClause, String[] whereCondition, String[] whereAndOr) throws SQLException
     {
-        /*
-        Cursor cursorFdce;
-        String fieldsFdce[] = new String[] {
-                "_id",
-                "fdce_id",
-                "fdce_date",
-                "fdce_meal_no",
-                "fdce_eaten_energy",
-                "fdce_eaten_proteins",
-                "fdce_eaten_carbs",
-                "fdce_eaten_fat"
-        };
-        String whereClause[] = new String[]{
-                "fdce_date",
-                "fdce_meal_no"
-        };
-        String whereCondition[] = new String[]{
-                stringDateSQL,
-                stringMealNumberSQL
-        };
-        String whereAndOr[] = new String[]{
-                "AND"
-        };*/
         String where = "";
         int arraySize = whereClause.length;
         for(int x=0;x<arraySize;x++) {
@@ -367,32 +344,6 @@ public class DBAdapter {
         return mCursor;
     }
 
-    /* 11 Update ----------------------------------------------------------------- */
-        /* Update example:
-        long id = 1;
-        String value = "xxt@doesthiswork.com";
-        String valueSQL = db.quoteSmart(value);
-        db.update("users", "user_id", id, "user_email", valueSQL);
-         */
-        /*String updateFields[] = new String[] {
-                    "fd_serving_size_gram",
-                    "fd_serving_size_pcs",
-                    "fd_energy_calculated",
-                    "fd_protein_calculated",
-                    "fd_carbohydrates_calculated",
-                    "fd_fat_calculated"
-            };
-            String updateValues[] = new String[] {
-                    fdServingSizeGramSQL,
-                    stringFdServingSizePcsSQL,
-                    stringFdEnergyCalcualtedSQL,
-                    stringFdProteinsCalcualtedSQL,
-                    stringFdCarbohydratesCalcualtedSQL,
-                    stringFdFatCalcualtedSQL
-            };
-            long longPrimaryKey = Long.parseLong(currentFdId);
-            db.update("food_diary", "_id", longPrimaryKey, updateFields, updateValues);
-            */
     public boolean update(String table, String primaryKey, long rowId, String field, String value) throws SQLException {
         // Toast.makeText(context, "UPDATE " + table + " SET " + field + "=" + value + " WHERE " + primaryKey + "=" + rowId, Toast.LENGTH_SHORT).show();
 

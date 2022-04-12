@@ -43,14 +43,6 @@ public class FragmentActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        try{
-            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-        }
-        catch (Exception e){
-            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
-
-        }
 
         /* Navigation */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
