@@ -503,7 +503,7 @@ public class CaloriesFragment extends Fragment {
             intFdceEatenProteins = intFdceEatenProteins+intFdProteinsCalculated;
             intFdceEatenCarbs = intFdceEatenCarbs+intFdCarbsCalculated;
             intFdceEatenFat = intFdceEatenFat+intFdFatCalculated;
-            
+
             cursorFd.moveToNext();
         }
 
@@ -686,7 +686,7 @@ public class CaloriesFragment extends Fragment {
         String fieldsFood[] = new String[] {
                 "_id",
                 "food_name",
-                "food_manufactor_name"
+                "food_manufacturer_name"
         };
         Cursor cursorFood;
 
@@ -1094,8 +1094,6 @@ public class CaloriesFragment extends Fragment {
 
     }
 
-
-
     /*- calcualteNumberOfCalEatenToday ------------------------------------------ */
     public void calcualteNumberOfCalEatenToday(String stringDate){
 
@@ -1117,9 +1115,6 @@ public class CaloriesFragment extends Fragment {
         };
         Cursor cursorFoodDiarySum = db.select("food_diary_sum", fieldsFoodDiarySum, "food_diary_sum_date", stringDateSQL);
         int cursorFoodDiarySumCount = cursorFoodDiarySum.getCount();
-
-
-
 
         // Select for food_diary_cal_eaten
         String fieldsFdce[] = new String[]{
