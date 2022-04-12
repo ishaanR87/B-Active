@@ -59,12 +59,11 @@ public class FoodFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    /*- 03 Constructur ------------------------------------------------------------------ */
-    // Nessesary for having Fragment as class
+    /*- 03 Constructor ------------------------------------------------------------------ */
+    // Necessesary for having Fragment as class
     public FoodFragment() {
         // Required empty public constructor
     }
-
 
     /*- 04 Creating Fragment ------------------------------------------------------------- */
     public static FoodFragment newInstance(String param1, String param2) {
@@ -117,7 +116,7 @@ public class FoodFragment extends Fragment {
     }
 
     /*- 07 set main view ----------------------------------------------------------------- */
-    // Changing view method in fragmetn
+    // Changing view method in fragment
     private void setMainView(int id) {
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mainView = inflater.inflate(id, null);
@@ -248,13 +247,6 @@ public class FoodFragment extends Fragment {
         } catch (SQLException sqle) {
             Toast.makeText(getActivity(), sqle.toString(), Toast.LENGTH_LONG).show();
         }
-
-        // Loop trough list cursor
-        /*int listCursorCount = listCursor.getCount();
-        for(int x=0;x<listCursorCount;x++){
-            Toast.makeText(getActivity(), "ID: " + listCursor.getString(0)+ "\nName: " + listCursor.getString(1), Toast.LENGTH_LONG).show();
-        }*/
-
 
         int simulateIndex = 0;
         listItemClicked(simulateIndex);
@@ -393,7 +385,6 @@ public class FoodFragment extends Fragment {
         db.close();
 
     }
-
 
     /*- Edit food ----------------------------------------------------------------- */
     String selectedMainCategoryName = "";
@@ -557,7 +548,6 @@ public class FoodFragment extends Fragment {
         for (int x = 0; x < dbCursorCount; x++) {
             arraySpinnerMainCategories[x] = dbCursorMain.getString(1).toString();
 
-
             if (dbCursorMain.getString(0).toString().equals(selectedSubCategoryParentId)) {
                 selectedMainCategoryIndex = x;
                 selectedMainCategoryName = dbCursorMain.getString(1).toString();
@@ -574,8 +564,6 @@ public class FoodFragment extends Fragment {
 
         // Select index of sub
         spinnerCatMain.setSelection(selectedMainCategoryIndex);
-        //Toast.makeText(getActivity(), "Parent ID: " + selectedSubCategoryParentId, Toast.LENGTH_SHORT).show();
-
 
         /* Serving Table */
 
@@ -635,11 +623,8 @@ public class FoodFragment extends Fragment {
             }
         });
 
-
         /* Close db */
         db.close();
-
-
     } // editFood
 
     public void editFoodMainCategoryChanged(String selectedItemCategoryName) {
@@ -701,7 +686,6 @@ public class FoodFragment extends Fragment {
         // DB fields
         long rowID = Long.parseLong(currentId);
 
-
         /* General */
 
         // Name
@@ -718,7 +702,7 @@ public class FoodFragment extends Fragment {
         String stringManufactor = editTextEditFoodManufactor.getText().toString();
         String stringManufactorSQL = db.quoteSmart(stringManufactor);
         if (stringManufactor.equals("")) {
-            Toast.makeText(getActivity(), "Please fill in a manufactor.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please fill in a manufacturer.", Toast.LENGTH_SHORT).show();
             error = 1;
         }
 
@@ -749,9 +733,7 @@ public class FoodFragment extends Fragment {
         String stringSubCategoryID = findstringSpinnerSubCategoryID.getString(0).toString();
         String stringSubCategoryIDSQL = db.quoteSmart(stringSubCategoryID);
 
-
         /* Serving Table */
-
         // Size
         EditText editTextEditFoodSize = (EditText) getActivity().findViewById(R.id.editTextEditFoodSize);
         String stringSize = editTextEditFoodSize.getText().toString();
@@ -774,7 +756,7 @@ public class FoodFragment extends Fragment {
         String stringMesurment = editTextEditFoodMesurment.getText().toString();
         String stringMesurmentSQL = db.quoteSmart(stringMesurment);
         if (stringMesurment.equals("")) {
-            Toast.makeText(getActivity(), "Please fill in mesurment.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please fill in measurement.", Toast.LENGTH_SHORT).show();
             error = 1;
         }
 
@@ -795,7 +777,6 @@ public class FoodFragment extends Fragment {
             Toast.makeText(getActivity(), "Please fill in word.", Toast.LENGTH_SHORT).show();
             error = 1;
         }
-
 
         /* Calories table */
         // Energy
