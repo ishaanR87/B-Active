@@ -9,29 +9,4 @@
     android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/calories"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Use the menu above to begin tracking!"
-        android:textSize="20dp"
-        android:layout_marginTop="30dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:text="Return Home"
-        android:backgroundTint="@color/blue"
-        android:textColor="@color/white"
-        app:cornerRadius="10dp"/>
-
 </LinearLayout>
