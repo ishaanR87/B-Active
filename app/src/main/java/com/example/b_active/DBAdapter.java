@@ -14,7 +14,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "bactive";
-    private static final int databaseVersion = 96;
+    private static final int databaseVersion = 97;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -127,9 +127,9 @@ public class DBAdapter {
                         " fd_meal_number INT," +
                         " fd_food_id INT," +
                         " fd_serving_size_gram DOUBLE," +
-                        " fd_serving_size_gram_measurement VARCHAR," +
+                        " fd_serving_size_gram_mesurment VARCHAR," +
                         " fd_serving_size_pcs DOUBLE," +
-                        " fd_serving_size_pcs_measurement VARCHAR," +
+                        " fd_serving_size_pcs_mesurment VARCHAR," +
                         " fd_energy_calculated DOUBLE," +
                         " fd_protein_calculated DOUBLE," +
                         " fd_carbohydrates_calculated DOUBLE," +
