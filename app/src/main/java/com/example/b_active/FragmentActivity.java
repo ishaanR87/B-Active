@@ -18,7 +18,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class FragmentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         CategoriesFragment.OnFragmentInteractionListener,
-        FoodFragment.OnFragmentInteractionListener {
+        FoodFragment.OnFragmentInteractionListener,
+        CaloriesFragment.OnFragmentInteractionListener,
+        AddFoodToDiaryFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

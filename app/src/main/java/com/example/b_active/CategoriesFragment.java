@@ -55,9 +55,6 @@ public class CategoriesFragment extends Fragment {
     private String currentFoodId;
     private String currentFoodName;
 
-
-
-
     /*- 02 Fragment Variables ----------------------------------------------------------- */
     // Nessesary for making fragment run
     // TODO: Rename parameter arguments, choose names that match
@@ -71,14 +68,11 @@ public class CategoriesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-
-
     /*- 03 Constructur ------------------------------------------------------------------ */
     // Nessesary for having Fragment as class
     public CategoriesFragment() {
         // Required empty public constructor
     }
-
 
     /*- 04 Creating Fragment ------------------------------------------------------------- */
     public static CategoriesFragment newInstance(String param1, String param2) {
@@ -568,7 +562,91 @@ public class CategoriesFragment extends Fragment {
 
     }
 
-    
+    /*- Show food in category ----------------------------------------------------------------- */
+    public void showFoodInCategory(String categoryId, String categoryName, String categoryParentID){
+        if(!(categoryParentID.equals("0"))) {
+            //Toast.makeText(getActivity(), "Cat: + " + categoryName + " + Parent: " + categoryParentID, Toast.LENGTH_SHORT).show();
+
+            /* Change layout */
+            int id = R.layout.fragment_food;
+            setMainView(id);
+
+            /* Database */
+            DBAdapter db = new DBAdapter(getActivity());
+            db.open();
+
+            // Get categories
+            String fields[] = new String[] {
+                    "_id",
+                    "food_name",
+                    "food_manufacturer_name",
+                    "food_description",
+                    "food_serving_size_gram",
+                    "food_serving_size_gram_mesurment",
+                    "food_serving_size_pcs",
+                    "food_serving_size_pcs_mesurment",
+                    "food_energy_calculated"
+            };
+            listCursorFood = db.select("food", fields, "food_category_id", categoryId, "food_name", "ASC");
+
+            // Find ListView to populate
+            ListView lvItemsFood = (ListView)getActivity().findViewById(R.id.listViewFood);
+
+            // Setup cursor adapter using cursor from last step
+            FoodCursorAdapter continentsAdapter = new FoodCursorAdapter(getActivity(), listCursorFood);
+
+            // Attach cursor adapter to the ListView
+            lvItemsFood.setAdapter(continentsAdapter); // uses ContinensCursorAdapter
+
+
+            // OnClick
+            lvItemsFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                    foodListItemClicked(arg2);
+                }
+            });
+
+
+            // Close db
+            db.close();
+
+        } //categoryParentID.equals
+    } // showFoodInCategory
+
+    /*- Food list item clicked ------------------------------------------------------------ */
+    private void foodListItemClicked(int intFoodListItemIndex){
+        // We should use
+        currentFoodId = listCursorFood.getString(0);
+        currentFoodName = listCursorFood.getString(1);
+        // Toast.makeText(getActivity(), "currentFoodID: " + currentFoodId + "\ncurrentFoodName: " + currentFoodName, Toast.LENGTH_LONG).show();
+
+
+        /* Change fragment to FoodView */
+
+        /* Inialize fragmet */
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        fragmentClass = FoodFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Send variable
+        Bundle bundle = new Bundle();
+        bundle.putString("currentFoodId", ""+currentFoodId); // Put anything what you want
+        fragment.setArguments(bundle);
+
+        // Need to pass meal number
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
+
+
+    }
+    /*- Fragment  methods -*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
