@@ -18,7 +18,7 @@ import com.example.b_active.Workout;
 
 public class Bmi extends AppCompatActivity {
 
-
+    // all variables
     TextView mcurrentheight;
     TextView mcurrentweight,mcurrentage;
     ImageView mincrementage,mdecrementage,mincrementweight,mdecrementweight;
@@ -26,6 +26,7 @@ public class Bmi extends AppCompatActivity {
     Button mcalculatebmi;
     RelativeLayout mmale,mfemale;
 
+    // all initialisations
     int intweight=55;
     int intage=20;
     int currentprogress;
@@ -56,7 +57,7 @@ public class Bmi extends AppCompatActivity {
         mfemale=findViewById(R.id.female);
 
 
-
+        // watches for male or female and darkens background if male
         mmale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +68,7 @@ public class Bmi extends AppCompatActivity {
             }
         });
 
-
+        // watches for male or female and darkens background if female
         mfemale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,6 +111,7 @@ public class Bmi extends AppCompatActivity {
             }
         });
 
+        // plus increases age by 1
         mincrementage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +121,7 @@ public class Bmi extends AppCompatActivity {
             }
         });
 
-
+        // minus decreases age by 1
         mdecrementage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +143,7 @@ public class Bmi extends AppCompatActivity {
         });
 
 
-
+        // all fields must be filled out
         mcalculatebmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -49,7 +49,7 @@ import java.util.Calendar;
  */
 public class CaloriesFragment extends Fragment {
 
-    /*- 01 Class Variables -------------------------------------------------------------- */
+    // Class Variables
     private View mainView;
     private Cursor listCursor;
 
@@ -73,8 +73,8 @@ public class CaloriesFragment extends Fragment {
 
 
 
-    /*- 02 Fragment Variables ----------------------------------------------------------- */
-    // Nessesary for making fragment run
+    // Fragment Variables
+    // Necessary for making fragment run
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -83,13 +83,13 @@ public class CaloriesFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
 
-    /*- 03 Constructur ------------------------------------------------------------------ */
-    // Nessesary for having Fragment as class
+    // Constructur
+    // Necessary for having Fragment as class
     public CaloriesFragment() {
         // Required empty public constructor
     }
 
-    /*- 04 Creating Fragment ------------------------------------------------------------- */
+    // Creating Fragment
     public static CaloriesFragment newInstance(String param1, String param2) {
         CaloriesFragment fragment = new CaloriesFragment();
         Bundle args = new Bundle();
@@ -99,15 +99,12 @@ public class CaloriesFragment extends Fragment {
         return fragment;
     }
 
-    /*- 05 on Activity Created ---------------------------------------------------------- */
+    // Activity Created
     // Run methods when started
     // Set toolbar menu items
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        /* Set title */
-       // ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Calories");
 
         // getDataFromDbAndDisplay
         initalizeHome();
@@ -116,8 +113,7 @@ public class CaloriesFragment extends Fragment {
         setHasOptionsMenu(true);
     } // onActivityCreated
 
-
-    /*- 06 On create view ---------------------------------------------------------------- */
+    // On create view
     // Sets main View variable to the view, so we can change views in fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -126,9 +122,8 @@ public class CaloriesFragment extends Fragment {
         return mainView;
     }
 
-
-    /*- 07 set main view ----------------------------------------------------------------- */
-    // Changing view method in fragmetn
+    // Set main view
+    // Changing view method in fragment
     private void setMainView(int id){
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mainView = inflater.inflate(id, null);
@@ -152,7 +147,7 @@ public class CaloriesFragment extends Fragment {
         menuItemAddFood.setVisible(true);
     }
 
-    /*- 09 on Options Item Selected ------------------------------------------------------ */
+    // on Options Item Selected
     // Action icon clicked on
     // Menu
     @Override
@@ -167,9 +162,9 @@ public class CaloriesFragment extends Fragment {
     /*- Our own methods -*/
 
 
-    /*- Initalize home ------------------------------------------------------------ */
+    // Initialize home
     private void initalizeHome(){
-        /* Find date */
+        // Find date
         if(currentDateYear.equals("") || currentDateMonth.equals("") || currentDateDay.equals("")) {
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
@@ -197,8 +192,7 @@ public class CaloriesFragment extends Fragment {
         }
         String stringFdDate = currentDateYear + "-" + currentDateMonth + "-" + currentDateDay;
 
-
-        /* Fill table */
+        // Fill Table
         updateTableItems(stringFdDate, "0");
         updateTableItems(stringFdDate, "1");
         updateTableItems(stringFdDate, "2");
@@ -207,12 +201,10 @@ public class CaloriesFragment extends Fragment {
         updateTableItems(stringFdDate, "5");
         updateTableItems(stringFdDate, "6");
 
-        /* Calcualte number of calories today */
+        // Calculate number of calories today
         calcualteNumberOfCalEatenToday(stringFdDate);
 
-
-
-        /* Breakfast listener */
+        // Breakfast listener
         ImageView imageViewAddBreakfast = (ImageView)getActivity().findViewById(R.id.imageViewAddBreakfast);
         imageViewAddBreakfast.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,14 +256,12 @@ public class CaloriesFragment extends Fragment {
             }
         });
 
-    } // initalizeHome
+    } // initializeHome
 
-
-    /*- Update table ------------------------------------------------------------ */
+    // Update table
     private void updateTableItems(String stringDate, String stringMealNumber){
-        //Toast.makeText(getActivity(), "updateTabe() date: " + stringDate, Toast.LENGTH_SHORT).show();
 
-        /* Database */
+        // Database
         DBAdapter db = new DBAdapter(getActivity());
         db.open();
 
@@ -395,7 +385,6 @@ public class CaloriesFragment extends Fragment {
                     fdServingSizePcs + " " +
                     fdServingSizePcsMesurment;
 
-
             // Add table rows
             TableLayout tl = null;
             if(stringMealNumber.equals("0")) {
@@ -426,7 +415,6 @@ public class CaloriesFragment extends Fragment {
             tr2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
             // Text params
-
             // Table row: TextView Name
             TextView textViewName = new TextView(getActivity()); // Add textview
             textViewName.setText(foodName);
@@ -552,14 +540,13 @@ public class CaloriesFragment extends Fragment {
 
         db.update("food_diary_cal_eaten", "_id", longstringFdceId, updateFields, updateValues);
 
-        /* Close db */
+        // Close db
         db.close();
     } // updateTableItems
 
-
-    /*- add food to diary select meal number -------------------------------- */
+    // add food to diary select meal number
     private void addFoodToDiarySelectMealNumber() {
-        /* Change layout */
+        // Change layout
         int newViewID = R.layout.fragment_calories_select_meal_number;
         setMainView(newViewID);
 
@@ -619,16 +606,12 @@ public class CaloriesFragment extends Fragment {
             }
         });
 
-
-
     } // addFoodToDiarySelectMealNumber
 
-
-    /*- Add food ------------------------------------------------------------ */
+    //- Add food ------------------------------------------------------------ */
     private void addFood(int mealNumber){
 
-
-        /* Inialize fragmet */
+        // Initialise fragment
         Fragment fragment = null;
         Class fragmentClass = null;
         fragmentClass = AddFoodToDiaryFragment.class;
@@ -649,11 +632,10 @@ public class CaloriesFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
+    } // initaliseHome
 
-    } // initalizeHome
 
-
-    /*- Edit or delete fd line ---------------------------------------------- */
+    // Edit or delete fd line
     private void rowOnClickEditDeleteFdLine(String stringTableRowTextName){
         /* Database */
         DBAdapter db = new DBAdapter(getActivity());
@@ -708,7 +690,6 @@ public class CaloriesFragment extends Fragment {
         int intCursorFdCount = cursorFd.getCount();
         for(int x=0;x<intCursorFdCount;x++) {
 
-
             // Variables from food diary
             stringFdId = cursorFd.getString(0);
             stringFdFoodId = cursorFd.getString(1);
@@ -742,7 +723,6 @@ public class CaloriesFragment extends Fragment {
                 break;
             }
 
-
             cursorFd.moveToNext();
         }
 
@@ -756,17 +736,11 @@ public class CaloriesFragment extends Fragment {
             currentFoodId   = stringFoodID;
             currentFdId     = stringFdId;
 
-            // Print current information
-            // Toast.makeText(getActivity(), "currentFoodName: " + currentFoodName + "\ncurrentFdID: " + currentFdId, Toast.LENGTH_LONG).show();
-
-
-
             TextView textViewViewFoodName = (TextView)getActivity().findViewById(R.id.textViewViewFoodName);
             textViewViewFoodName.setText(stringFoodName);
 
             TextView textViewViewFoodManufactorName = (TextView)getActivity().findViewById(R.id.textViewViewFoodManufactorName);
             textViewViewFoodManufactorName.setText(stringFoodManufactorName);
-
 
             EditText editTextServingSizePcs = (EditText)getActivity().findViewById(R.id.editTextServingSizePcs);
             editTextServingSizePcs.setText(stringFdServingSizePcs);
@@ -823,7 +797,6 @@ public class CaloriesFragment extends Fragment {
                 }
             });
 
-
             // Listener
             Button buttonSubmitEdit = (Button)getActivity().findViewById(R.id.buttonSubmitEdit);
             buttonSubmitEdit.setOnClickListener(new View.OnClickListener() {
@@ -874,8 +847,6 @@ public class CaloriesFragment extends Fragment {
                     System.out.println("Could not parse " + nfe);
                 }
             }
-
-
             // Database
             DBAdapter db = new DBAdapter(getActivity());
             db.open();
@@ -889,7 +860,6 @@ public class CaloriesFragment extends Fragment {
             // Convert cursor to strings
             String stringServingSize = foodCursor.getString(0);
             db.close();
-
 
             // Convert cursor to double
             double doubleServingSize = 0;
@@ -941,7 +911,6 @@ public class CaloriesFragment extends Fragment {
             String stringServingSizeGram = foodCursor.getString(0);
             db.close();
 
-
             // Convert cursor to double
             double doubleServingSizeGram = 0;
             try {
@@ -950,10 +919,8 @@ public class CaloriesFragment extends Fragment {
                 System.out.println("Could not parse " + nfe);
             }
 
-
             // Calculate pcs
             double doublePortionSizePcs = Math.round(doublePortionSizeGram / doubleServingSizeGram);
-
 
             // Update
             // Get value of pcs
@@ -965,7 +932,6 @@ public class CaloriesFragment extends Fragment {
 
     /*- Edit fd line submit ---------------------------------------------------------------- */
     public void OnClickEditFdLineSubmit(){
-
         // We want to edit food
         // Error
         int error = 0;
@@ -982,7 +948,6 @@ public class CaloriesFragment extends Fragment {
         catch(NumberFormatException nfe) {
             System.out.println("Could not parse " + nfe);
         }
-
 
         // Get food info
         String fields[] = new String[] {
@@ -1011,7 +976,6 @@ public class CaloriesFragment extends Fragment {
         String stringGetFromSQLFoodFat = foodCursor.getString(4);
         double doubleGetFromSQLFoodFat = Double.parseDouble(stringGetFromSQLFoodFat);
 
-
         // Update fd serving size gram
         EditText editTextServingSizeGram = (EditText)getActivity().findViewById(R.id.editTextServingSizeGram);
         String stringFdServingSizeGram = editTextServingSizeGram.getText().toString();
@@ -1031,44 +995,35 @@ public class CaloriesFragment extends Fragment {
         String stringFdEnergyCalcualtedSQL = db.quoteSmart(stringFdEnergyCalcualted);
         db.update("food_diary", "_id", longFdID, "fd_energy_calculated", stringFdEnergyCalcualtedSQL);
 
-        // Proteins calcualted
+        // Proteins calculated
         double doubleFdProteinsCalculated = Math.round((doubleFdServingSizeGram*doubleGetFromSQLFoodProteins)/100);
         String stringFdProteinsCalcualted = "" + doubleFdProteinsCalculated;
         String stringFdProteinsCalcualtedSQL = db.quoteSmart(stringFdProteinsCalcualted);
         db.update("food_diary", "_id", longFdID, "fd_protein_calculated", stringFdProteinsCalcualtedSQL);
 
-        // Carbohydrates calcualted
+        // Carbohydrates calculated
         double doubleFdCarbohydratesCalculated = Math.round((doubleFdServingSizeGram*doubleGetFromSQLFoodCarbohydrates)/100);
         String stringFdCarbohydratesCalcualted = "" + doubleFdCarbohydratesCalculated;
         String stringFdCarbohydratesCalcualtedSQL = db.quoteSmart(stringFdCarbohydratesCalcualted);
         db.update("food_diary", "_id", longFdID, "fd_carbohydrates_calculated", stringFdCarbohydratesCalcualtedSQL);
 
-
-        // Fat calcualted
+        // Fat calculated
         double doubleFdFatCalculated = Math.round((doubleFdServingSizeGram*doubleGetFromSQLFoodFat)/100);
         String stringFdFatCalcualted = "" + doubleFdFatCalculated;
         String stringFdFatCalcualtedSQL = db.quoteSmart(stringFdFatCalcualted);
         db.update("food_diary", "_id", longFdID, "fd_fat_calculated", stringFdFatCalcualtedSQL);
 
-
         db.close();
-
-
         Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
-
 
         /* Restart fragment */
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, new CaloriesFragment(), CategoriesFragment.class.getName()).commit();
-
-
     }
-
 
     /*- Delete fd line submit ---------------------------------------------------------------- */
     public void OnClickDeleteFdLineSubmit(){
         Toast.makeText(getActivity(), "Deleted " + currentFoodName, Toast.LENGTH_SHORT).show();
-
 
         // Database
         DBAdapter db = new DBAdapter(getActivity());
@@ -1086,15 +1041,13 @@ public class CaloriesFragment extends Fragment {
 
         db.close();
 
-
         /* Restart fragment */
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, new CaloriesFragment(), CaloriesFragment.class.getName()).commit();
 
-
     }
 
-    /*- calcualteNumberOfCalEatenToday ------------------------------------------ */
+    /*- calculateNumberOfCalEatenToday ------------------------------------------ */
     public void calcualteNumberOfCalEatenToday(String stringDate){
 
         /* Database */
@@ -1154,7 +1107,6 @@ public class CaloriesFragment extends Fragment {
             stringGetFdceEatenCarbs = cursorFdce.getString(6);
             stringGetFdceEatenFat = cursorFdce.getString(7);
 
-
             try {
                 intFdceEatenEnergy = Integer.parseInt(stringGetFdceEatenEnergy);
             } catch (NumberFormatException nfe) {
@@ -1179,7 +1131,6 @@ public class CaloriesFragment extends Fragment {
                 System.out.println("Could not parse " + nfe);
             }
 
-
             intFdcetEatenEnergy = intFdcetEatenEnergy + intFdceEatenEnergy;
             intFdcetEatenProteins = intFdcetEatenProteins + intFdceEatenProteins;
             intFdcetEatenCarbs = intFdcetEatenCarbs + intFdceEatenCarbs;
@@ -1188,7 +1139,6 @@ public class CaloriesFragment extends Fragment {
             // Move to next
             cursorFdce.moveToNext();
         }
-
 
         if (cursorFoodDiarySumCount == 0) {
             // Insert database
@@ -1212,7 +1162,6 @@ public class CaloriesFragment extends Fragment {
 
             db.update("food_diary_sum", "_id", longFoodDiaryId, updateFields, updateValues);
         }
-
 
         // Get goal
         String fieldsGoal[] = new String[]{
@@ -1243,13 +1192,8 @@ public class CaloriesFragment extends Fragment {
 
         TextView textViewBodyRemaining = (TextView) getActivity().findViewById(R.id.textViewBodyRemaining);
         textViewBodyRemaining.setText("" + textViewBodyResult);
-
-
-
         db.close();
     } // calcualteNumberOfCalEatenToday
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

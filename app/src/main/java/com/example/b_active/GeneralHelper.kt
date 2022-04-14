@@ -48,12 +48,13 @@ class GeneralHelper {
 
         }
 
+        // Calculates the calories while walking
         fun getCalories(steps: Int): String? {
             val Cal = (steps * 0.045).toInt()
             return "$Cal calories"
         }
 
-
+        // Calculates the distance travelled
         fun getDistanceCovered(steps: Int): String? {
             val feet = (steps * 2.5).toInt()
             val distance = feet/3.281

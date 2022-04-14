@@ -279,8 +279,6 @@ public class FoodFragment extends Fragment {
 
         // Change title
         ((FragmentActivity) getActivity()).getSupportActionBar().setTitle(currentName);
-
-
         /*  Get data from database */
 
         // Database
@@ -631,7 +629,6 @@ public class FoodFragment extends Fragment {
         if (!(selectedItemCategoryName.equals(selectedMainCategoryName))) {
             // Toast.makeText(getActivity(), "Changed main category to: " + selectedItemCategoryName, Toast.LENGTH_SHORT).show();
 
-
             /* Database */
             DBAdapter db = new DBAdapter(getActivity());
             db.open();
@@ -646,7 +643,6 @@ public class FoodFragment extends Fragment {
             Cursor findMainCategoryID = db.select("categories", spinnerFields, "category_name", selectedItemCategoryNameSQL);
             String stringMainCategoryID = findMainCategoryID.getString(0).toString();
             String stringMainCategoryIDSQL = db.quoteSmart(stringMainCategoryID);
-
 
             /* Sub categories */
             Cursor dbCursorSub = db.select("categories", spinnerFields, "category_parent_id", stringMainCategoryIDSQL, "category_name", "ASC");
@@ -668,8 +664,6 @@ public class FoodFragment extends Fragment {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_spinner_item, arraySpinnerCategoriesSub);
             spinnerSubCat.setAdapter(adapter);
-
-
             db.close();
         }
     }
@@ -687,7 +681,6 @@ public class FoodFragment extends Fragment {
         long rowID = Long.parseLong(currentId);
 
         /* General */
-
         // Name
         EditText editTextEditFoodName = (EditText) getActivity().findViewById(R.id.editTextEditFoodName);
         String stringName = editTextEditFoodName.getText().toString();
@@ -923,14 +916,12 @@ public class FoodFragment extends Fragment {
         db.close();
     } // buttonEditFoodSubmitOnClick
 
-
     /*- Delete food -------------------------------------------------------------------- */
     public void deleteFood() {
 
         /* Change layout */
         int id = R.layout.fragment_food_delete;
         setMainView(id);
-
 
         /* buttonCategoriesCancel listener */
         Button buttonCancel = (Button) getActivity().findViewById(R.id.buttonCancel);
@@ -940,7 +931,6 @@ public class FoodFragment extends Fragment {
                 deleteFoodCancel();
             }
         });
-
 
         /* buttonCategoriesConfirmDelete listener */
         Button buttonConfirmDelete = (Button) getActivity().findViewById(R.id.buttonConfirmDelete);
@@ -991,7 +981,6 @@ public class FoodFragment extends Fragment {
 
     }
 
-
     /*- Add food ------------------------------------------------------------------------------ */
     public void addFood() {
         /* Database */
@@ -1004,7 +993,6 @@ public class FoodFragment extends Fragment {
 
         // Change title
         ((FragmentActivity) getActivity()).getSupportActionBar().setTitle("Add food");
-
 
         /* Main category */
         String spinnerFields[] = new String[]{
@@ -1044,7 +1032,6 @@ public class FoodFragment extends Fragment {
             }
         });
 
-
         /* SubmitButton listener */
         Button buttonEditFood = (Button) getActivity().findViewById(R.id.buttonEditFood);
         buttonEditFood.setOnClickListener(new View.OnClickListener() {
@@ -1053,7 +1040,6 @@ public class FoodFragment extends Fragment {
                 buttonAddFoodSubmitOnClick();
             }
         });
-
 
         /* Close db */
         db.close();
@@ -1068,9 +1054,7 @@ public class FoodFragment extends Fragment {
         // Error?
         int error = 0;
 
-
         /* General */
-
         // Name
         EditText editTextEditFoodName = (EditText) getActivity().findViewById(R.id.editTextEditFoodName);
         String stringName = editTextEditFoodName.getText().toString();
@@ -1115,7 +1099,6 @@ public class FoodFragment extends Fragment {
         Cursor findstringSpinnerSubCategoryID = db.select("categories", spinnerFields, "category_name", stringSpinnerSubCategoryNameSQL);
         String stringSubCategoryID = findstringSpinnerSubCategoryID.getString(0).toString();
         String stringSubCategoryIDSQL = db.quoteSmart(stringSubCategoryID);
-
 
         /* Serving Table */
 
@@ -1162,7 +1145,6 @@ public class FoodFragment extends Fragment {
             Toast.makeText(getActivity(), "Please fill in word.", Toast.LENGTH_SHORT).show();
             error = 1;
         }
-
 
         /* Calories table */
         // Energy
@@ -1236,9 +1218,6 @@ public class FoodFragment extends Fragment {
             }
         }
         String stringFatPerHundredSQL = db.quoteSmart(stringFatPerHundred);
-
-
-
         /* Insert */
         if (error == 0) {
 
@@ -1299,7 +1278,6 @@ public class FoodFragment extends Fragment {
                             stringBarcodeSQL + ", " +
                             stringSubCategoryIDSQL;
 
-
             db.insert("food", fields, values);
 
             // Toast
@@ -1310,8 +1288,6 @@ public class FoodFragment extends Fragment {
             fragmentManager.beginTransaction().replace(R.id.flContent, new FoodFragment(), FoodFragment.class.getName()).commit();
 
         } // error == 0
-
-
         /* Close db */
         db.close();
     } // buttonAddFoodSubmitOnClick

@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
+    // All Variables
     private TextView register, forgotPassword;
     private EditText lemail, lpassword;
     private Button signIN;
@@ -53,6 +54,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         forgotPassword.setOnClickListener(this);
     }
 
+    // Option depending on link clicked
     public void onClick(View v)
     {
         switch (v.getId()) {
@@ -71,11 +73,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    // Login function extracts email/password
     public void userLogin(){
         String email = lemail.getText().toString().trim();
         String password = lpassword.getText().toString().trim();
 
-
+        // Email Error Checking
         if(email.isEmpty()){
             lemail.setError("Email is required!");
             lemail.requestFocus();
@@ -103,17 +106,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         progressBar.setVisibility(View.VISIBLE);
 
+        // Authenticate user and sign in
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+                // Only if verified
                 if(user.isEmailVerified()){
                     startActivity(new Intent(Login.this, MainActivity.class));
                     progressBar.setVisibility(View.GONE);
                 }else{
+                    // Verifaction is sent
                     user.sendEmailVerification();
                     Toast.makeText(Login.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
                 }

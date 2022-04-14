@@ -25,13 +25,10 @@ public class UserProfile extends AppCompatActivity {
     private String[] arraySpinnerDOBDay = new String[31];
     private String[] arraySpinnerDOBYear = new String[100];
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userprofile);
-
 
         /* Fill numbers for date of birth days */
         int human_counter = 0;
@@ -62,7 +59,6 @@ public class UserProfile extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, arraySpinnerDOBYear);
         spinnerDOBYear.setAdapter(adapterYear);
 
-
         /* Hide error icon and message */
         ImageView imageViewError = (ImageView)findViewById(R.id.imageViewError);
         imageViewError.setVisibility(View.GONE);
@@ -73,7 +69,6 @@ public class UserProfile extends AppCompatActivity {
         /* Hide inches field */
         EditText editTextHeightInches = (EditText)findViewById(R.id.editTextHeightInches);
         editTextHeightInches.setVisibility(View.GONE);
-
 
         /* Listener Measurement spinner */
         Spinner spinnerMeasurement = (Spinner)findViewById(R.id.spinnerMeasurement);
@@ -96,8 +91,6 @@ public class UserProfile extends AppCompatActivity {
                 signUpSubmit();
             }
         });
-
-
     } // protected void onCreate
 
     /*- Measurement changed ------------------------------------------ */
@@ -106,7 +99,6 @@ public class UserProfile extends AppCompatActivity {
         // Measurement spinner
         Spinner spinnerMeasurement = (Spinner)findViewById(R.id.spinnerMeasurement);
         String stringMeasurement = spinnerMeasurement.getSelectedItem().toString();
-
 
         EditText editTextHeightCm = (EditText)findViewById(R.id.editTextHeightCm);
         EditText editTextHeightInches = (EditText)findViewById(R.id.editTextHeightInches);
@@ -141,9 +133,7 @@ public class UserProfile extends AppCompatActivity {
                 int intHeightFeet = (int) heightFeet;
 
                 editTextHeightCm.setText("" + intHeightFeet);
-
             }
-
         } // if(stringMeasurement.startsWith("I")){
         else{
             // Metric
@@ -158,7 +148,6 @@ public class UserProfile extends AppCompatActivity {
                 heightFeet = Double.parseDouble(stringHeightCm);
             }
             catch(NumberFormatException nfe) {
-
             }
 
             // Convert inches
@@ -166,7 +155,6 @@ public class UserProfile extends AppCompatActivity {
                 heightInches = Double.parseDouble(stringHeightInches);
             }
             catch(NumberFormatException nfe) {
-
             }
 
             // Need to convert, we want to save the number in cm
@@ -262,7 +250,6 @@ public class UserProfile extends AppCompatActivity {
         // Put date of birth together
         String dateOfBirth = intDOBYear + "-" + stringDOBMonth + "-" + stringDOBDay;
 
-
         // Gender
         RadioGroup radioGroupGender = (RadioGroup)findViewById(R.id.radioGroupGender);
         int radioButtonID = radioGroupGender.getCheckedRadioButtonId(); // get selected radio button from radioGroup
@@ -302,7 +289,6 @@ public class UserProfile extends AppCompatActivity {
         }
 
         if(metric == true) {
-
             // Convert CM
             try {
                 heightCm = Double.parseDouble(stringHeightCm);
@@ -412,5 +398,4 @@ public class UserProfile extends AppCompatActivity {
             textViewErrorMessage.setVisibility(View.VISIBLE);
         }
     }
-
 } // public class SignUp

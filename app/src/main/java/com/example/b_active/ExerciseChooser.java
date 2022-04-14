@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ExerciseChooser extends AppCompatActivity {
 
+    // all variables
     String buttonValue;
     Button startBtn;
     private CountDownTimer countDownTimer;
@@ -30,6 +31,7 @@ public class ExerciseChooser extends AppCompatActivity {
 
         int intValue = Integer.valueOf(buttonValue);
 
+        // switch to display each exercise page
         switch (intValue) {
 
             case 1:
@@ -68,6 +70,7 @@ public class ExerciseChooser extends AppCompatActivity {
         startBtn = findViewById(R.id.start);
         mTextView = findViewById(R.id.timer);
 
+        // calls start and stop timer
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +83,7 @@ public class ExerciseChooser extends AppCompatActivity {
         });
     }
 
+    // stops timer
     private void stopTimer()
     {
         countDownTimer.cancel();
@@ -87,6 +91,7 @@ public class ExerciseChooser extends AppCompatActivity {
         startBtn.setText("Start Timer");
     }
 
+    // starts timer
     private void startTimer()
     {
         final CharSequence value1 = mTextView.getText();
@@ -132,9 +137,11 @@ public class ExerciseChooser extends AppCompatActivity {
 
     private void updateTimer()
     {
+        // formula for minutes and time
         int minutes = (int) MtimeLeftInMillis/60000;
         int seconds = (int) MtimeLeftInMillis%60000 /1000;
 
+        // sets text for display
         String timeLeftText="";
         if(minutes<10)
             timeLeftText="0";

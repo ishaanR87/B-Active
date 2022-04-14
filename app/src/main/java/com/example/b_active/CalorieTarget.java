@@ -60,7 +60,7 @@ public class CalorieTarget extends AppCompatActivity {
             errorMessage = "Target weight has to be a number.";
         }
 
-        /* Spinner IWantTo */
+
         // 0 - Lose weight
         // 1 - Gain weight
         Spinner spinnerIWantTo = (Spinner)findViewById(R.id.spinnerIWantTo);
@@ -69,7 +69,6 @@ public class CalorieTarget extends AppCompatActivity {
         /* Spinner spinnerWeeklyGoal */
         Spinner spinnerWeeklyGoal = (Spinner)findViewById(R.id.spinnerWeeklyGoal);
         String stringWeeklyGoal = spinnerWeeklyGoal.getSelectedItem().toString();
-
 
         /* Update fields */
         if(errorMessage.isEmpty()){
@@ -168,7 +167,6 @@ public class CalorieTarget extends AppCompatActivity {
             catch(NumberFormatException nfe) {
                 System.out.println("Could not parse " + nfe);
             }
-            //Toast.makeText(this, "DOB=" + stringUserDob + "\nAge=" + stringUserAge + "\nGender=" + stringUserGender + "\nHeight=" + stringUserHeight + "\nActivity level=" + stringUserActivityLevel, Toast.LENGTH_LONG).show();
 
             long goalID = 1;
 
@@ -179,20 +177,16 @@ public class CalorieTarget extends AppCompatActivity {
                 // Male
                 // BMR = 66.5 + (13.75 x kg body weight) + (5.003 x height in cm) - (6.755 x age)
                 goalEnergyBMR = 66.5+(13.75*doubleUserCurrentWeight)+(5.003*doubleUserHeight)-(6.755*intUserAge);
-                //bmr = Math.round(bmr);
-                //Toast.makeText(this, "BMR formula: 66.5+(13.75*" + doubleUserCurrentWeight + ")+(5.003*" + doubleUserHeight + ")-(6.755*" + intUserAge + " = " + goalEnergyBMR, Toast.LENGTH_LONG).show();
 
             } // if(stringUserGender.startsWith("m")){
             else{
                 // Female
                 // BMR = 55.1 + (9.563 x kg body weight) + (1.850 x height in cm) - (4.676 x age)
                 goalEnergyBMR = 655+(9.563*doubleUserCurrentWeight)+(1.850*doubleUserHeight)-(4.676*intUserAge);
-                //bmr = Math.round(bmr);
             }
             goalEnergyBMR = Math.round(goalEnergyBMR);
             double energyBmrSQL = db.quoteSmart(goalEnergyBMR);
             db.update("goal", "_id", goalID, "goal_energy_bmr", energyBmrSQL);
-            //Toast.makeText(this, "BMR before activity: " + bmr, Toast.LENGTH_LONG).show();
 
             // Proteins, carbs and fat with BMR
             // 20-25 % protein
@@ -226,9 +220,8 @@ public class CalorieTarget extends AppCompatActivity {
             double energyDiet = 0;
             kcal = 7700*doubleWeeklyGoal;
             if(intIWantTo == 0){
-                // Loose weight
+                // Lose weight
                 energyDiet = Math.round((goalEnergyBMR - (kcal/7)) * 1.2);
-
             }
             else{
                 // Gain weight
@@ -253,7 +246,6 @@ public class CalorieTarget extends AppCompatActivity {
             db.update("goal", "_id", goalID, "goal_proteins_diet", proteinsDietSQL);
             db.update("goal", "_id", goalID, "goal_carbs_diet", carbsDietSQL);
             db.update("goal", "_id", goalID, "goal_fat_diet", fatDietQL);
-
 
             /* 3: With activity */
             // Taking in to account activity
@@ -346,7 +338,7 @@ public class CalorieTarget extends AppCompatActivity {
             db.update("goal", "_id", goalID, "goal_carbs_with_activity_and_diet", carbsSQL);
             db.update("goal", "_id", goalID, "goal_fat_with_activity_and_diet", fatSQL);
 
-        } //  /* Calculate energy */
+        } /* Calculate energy */
 
         // Error handling
         if(!(errorMessage.isEmpty())){

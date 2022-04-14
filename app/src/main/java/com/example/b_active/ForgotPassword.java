@@ -17,10 +17,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatActivity {
 
+    // All Variables
     private EditText emailET;
     private Button resetPassbtn;
     private ProgressBar progressBar;
 
+    // Declare Firebase
     FirebaseAuth auth;
 
     @Override
@@ -42,10 +44,12 @@ public class ForgotPassword extends AppCompatActivity {
         });
     }
 
+    // Reset Password
     private void resetPass()
     {
         String email = emailET.getText().toString().trim();
 
+        // Empty email error
         if(email.isEmpty()){
             emailET.setError("Email is required!");
             emailET.requestFocus();
@@ -58,6 +62,7 @@ public class ForgotPassword extends AppCompatActivity {
             return;
         }
 
+        // Email is sent to user
         progressBar.setVisibility(View.VISIBLE);
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

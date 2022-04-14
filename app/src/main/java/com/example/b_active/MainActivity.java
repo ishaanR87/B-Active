@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         /* Close database */
         db.close();
 
-
         if(numberRows < 1){
             // Sign up
             // Toast.makeText(this, "You are only few fields away from signing up...", Toast.LENGTH_LONG).show();

@@ -17,7 +17,7 @@ import android.widget.TextView;
 public class CalculateBMI extends AppCompatActivity {
 
 
-
+    // all variables
     TextView mbmidisplay,magedisplay,mweightdisplay,mheightdisplay,mbmicategory,mgender;
     Button mgotomain;
     Intent intent;
@@ -44,6 +44,7 @@ public class CalculateBMI extends AppCompatActivity {
 
         setTitle("BMI Calculator");
 
+        // All initialisations
 
         intent=getIntent();
         mbmidisplay=findViewById(R.id.bmidisplay);
@@ -63,13 +64,16 @@ public class CalculateBMI extends AppCompatActivity {
         intheight=Float.parseFloat(height);
         intweight=Float.parseFloat(weight);
 
+
         intheight=intheight/100;
+        // formula for bmi
         intbmi=intweight/(intheight*intheight);
 
 
         mbmi=Float.toString(intbmi);
         System.out.println(mbmi);
 
+        // BMI results
         if(intbmi<16)
         {
             mbmicategory.setText("Severely Underweight");
@@ -109,6 +113,7 @@ public class CalculateBMI extends AppCompatActivity {
             mimageview.setImageResource(R.drawable.bad);
         }
 
+        // Categories are displayed
         mgender.setText(intent.getStringExtra("gender"));
         mbmidisplay.setText(mbmi);
 

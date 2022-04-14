@@ -17,9 +17,11 @@ class App : android.app.Application() {
             .setUseDefaultSharedPreference(true)
             .build();
 
+        // Calls function
         createNotificationChannel()
     }
 
+    // Creates a notification channel in the background
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val serviceChannel = NotificationChannel(

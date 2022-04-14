@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
+
+    // All Variables
     Button stepcounter;
     Button workout;
     Button logout;
@@ -33,6 +35,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         bmi.setOnClickListener(this);
         cal.setOnClickListener(this);
 
+        // If useer wishes to logout
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +48,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        // Choice of buttons present
         switch (v.getId()) {
 
             // cases applied over different buttons
