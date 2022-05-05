@@ -18,13 +18,12 @@ public class CalculateBMI extends AppCompatActivity {
 
 
     // all variables
-    TextView mbmidisplay,magedisplay,mweightdisplay,mheightdisplay,mbmicategory,mgender;
+    TextView mbmidisplay,mbmicategory,mgender;
     Button mgotomain;
     Intent intent;
 
     ImageView mimageview;
     String mbmi;
-    String cateogory;
     float intbmi;
 
     String height;

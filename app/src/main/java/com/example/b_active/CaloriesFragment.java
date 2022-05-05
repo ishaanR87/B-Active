@@ -69,10 +69,6 @@ public class CaloriesFragment extends Fragment {
     private boolean lockPortionSizeByPcs;
     private boolean lockPortionSizeByGram;
 
-
-
-
-
     // Fragment Variables
     // Necessary for making fragment run
     private static final String ARG_PARAM1 = "param1";
@@ -82,8 +78,7 @@ public class CaloriesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-
-    // Constructur
+    // Constructr
     // Necessary for having Fragment as class
     public CaloriesFragment() {
         // Required empty public constructor

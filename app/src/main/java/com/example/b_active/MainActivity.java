@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // Count rows in food
         int numberRows = db.count("food");
 
-        if (numberRows < 1) {
+        if (numberRows  < 1) {
             // Run setup
             // Toast.makeText(this, "Loading setup...", Toast.LENGTH_LONG).show();
             DBSetupInsert setupInsert = new DBSetupInsert(this);

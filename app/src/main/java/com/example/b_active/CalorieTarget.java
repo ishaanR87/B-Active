@@ -32,7 +32,6 @@ public class CalorieTarget extends AppCompatActivity {
         });
 
         hideErrorHandling();
-
         measurementUsed();
 
     } // onCreate

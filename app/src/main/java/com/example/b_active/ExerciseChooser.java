@@ -19,8 +19,6 @@ public class ExerciseChooser extends AppCompatActivity {
     private boolean MtimeRunning;
     private long MtimeLeftInMillis;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

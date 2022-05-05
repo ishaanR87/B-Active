@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         bmi.setOnClickListener(this);
         cal.setOnClickListener(this);
 
-        // If useer wishes to logout
+        // If user wishes to logout
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

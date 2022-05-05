@@ -86,7 +86,6 @@ public class FoodFragment extends Fragment {
         /* Set title */
         ((FragmentActivity) getActivity()).getSupportActionBar().setTitle("Food");
 
-
         // Create menu
         setHasOptionsMenu(true);
 
